@@ -3,11 +3,11 @@
 <!--主体 End-->
 </body>
  
-	<script type="text/javascript" src="../../js/jquery-1.7.2.min.js"></script>	
-	<script type="text/javascript" src="../../js/jquery.imgareaselect.pack.js"></script>
-	<script type="text/javascript" src="../../js/jquery.masonry.min.js"></script>
-	<script type="text/javascript" src="../../js/jquery.infinitescroll.min.js"></script>
-	<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../public/js/jquery-1.7.2.min.js"></script>	
+	<script type="text/javascript" src="../public/js/jquery.imgareaselect.pack.js"></script>
+	<script type="text/javascript" src="../public/js/jquery.masonry.min.js"></script>
+	<script type="text/javascript" src="../public/js/jquery.infinitescroll.min.js"></script>
+	<script type="text/javascript" src="../public/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
 	$(function(){
 

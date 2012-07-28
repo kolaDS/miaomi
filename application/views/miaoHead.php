@@ -9,7 +9,7 @@
 	<meta name="keywords" content="" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>miaomi</title>
-	<link rel="stylesheet" href="../../css/miaomi.css" />
+	<link rel="stylesheet" href="../public/css/miaomi.css" />
 </head>
 <body>
 <!--头部 Str-->

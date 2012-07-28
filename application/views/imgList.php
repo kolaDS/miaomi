@@ -3,7 +3,7 @@
 	<?php foreach ($imglist as $item):?>
 	<div class="item">
 		<div class="item-inner">
-			<div class="item-pic"><img src="../../uploads/<?php echo($item['imgname']);?>.jpg" /></div>
+			<div class="item-pic"><img src="../public/uploads/<?php echo($item['imgname']);?>.jpg" /></div>
 			<div class="item-info">
 				<p class="item-info-num"><span class="num-like"><?php echo($item['imglike']);?>喜欢</span><span class="num-share">2分享</span></p>
 				<p class="item-info-date"><?php echo($item['imgdate']);?></p>
