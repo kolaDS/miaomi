@@ -1,0 +1,70 @@
+/*
+ * Copy Right: DS
+ * Project: Miaomi
+ * Comments: CSS RESET
+ * @author kolawang
+ * @author meterscao
+ */
+
+@import "core-reset.css";
+/* body */
+body{ background-image: url(../image/bg-body.png); background-color: #ece8e3;color:#978980;}
+.wrapper{ position: relative;margin:0 auto;padding:0 15px;}
+a{color:#da8e5c;}
+a:hover{text-decoration:none;color:#cc6724}
+.txt-hidden{line-height:200px;overflow:hidden;}
+.txt-em{color:#cc6724;}
+.avatar{border-radius:3px;}
+.ui-icon{ display: inline-block;line-height:100px;overflow:hidden;}
+
+/* header */
+.header{height:60px;background: url(../image/header-bar-sd.png)  0 47px repeat-x; position: fixed;width:100%;z-index:10;}
+.header-inner{height:47px; background-color: #fff;}
+
+.header-inner .header-bar .logo{ position: absolute;width:270px;height:61px;left:15px;top:0;background-image: url(../slice//logo.png)}
+
+.header-inner .header-bar .tab-nav{margin-left:338px;}
+.header-inner .header-bar .tab-nav ul{overflow:hidden;*zoom:1;}
+.header-inner .header-bar .tab-nav li,
+.header-inner .header-bar .tab-nav a{ float: left;height:47px;line-height:47px;font-size:14px;}
+.header-inner .header-bar .tab-nav a{padding:0 20px;}
+.header-inner .header-bar .tab-nav b{ display: block;margin-top:17px;height:16px;line-height:100px;overflow:hidden;}
+.header-inner .header-bar .tab-nav .on{background: url(../image/nav-on-right.png) right 0 no-repeat;}
+.header-inner .header-bar .tab-nav .on a{background: url(../image/nav-on-left.png)  0 0 no-repeat;}
+.header-inner .header-bar .tab-nav .tab-nav-a b{width:81px; background-image: url(../slice//nav-text-a.png);}
+.header-inner .header-bar .tab-nav .tab-nav-b b{width:56px; background-image: url(../slice//nav-text-b.png);}
+
+.header-inner .header-bar .btn-upload{ position: absolute;right:15px;top:10px;width:93px;height:30px; background-image: url(../slice//btn-upload.png);}
+.header-inner .header-bar .btn-upload:hover{background-image: url(../slice//btn-upload-hover.png);}
+/* main */
+.main{padding-top:81px;background: url(../image/bg-main.png) center 6px no-repeat; background-size:100% 127px;}
+.main .main-top{padding:0 10px;height:32px;line-height:32px;}
+.main .main-top .pic-num{margin:0 5px;font-weight: 700;}
+.main .main-top .icon-list{ float: left;width:20px;height:23px;margin-top:6px;margin-right:8px;background-image: url(../slice//icon-list.png);}
+
+.main .main-list{padding-top:20px;margin-left:-10px;}
+.main .item{ position: relative;width:222px;background-color: #fff;box-shadow:0 1px 2px rgba(0,0,0,.15);margin-bottom:10px;margin-left:10px;}
+.main .item .item-inner{ position: relative;overflow:hidden;}
+.main .item .item-pic{padding:10px;padding-bottom:0;}
+.main .item .item-pic img{ vertical-align: top;width:202px;}
+.main .item .item-info{height:32px;line-height:32px;padding:0 10px;overflow:hidden;color:#b8b3b0;}
+.main .item .item-info-num{ float: left;}
+.main .item .item-info-num .num-like{margin-right:8px;}
+.main .item .item-info-date{ float: right;}
+
+.main .item .item-describe{padding:10px; background-color: #f8f6f2;border-top:1px solid #f2efeb; *zoom:1;overflow: hidden;}
+.main .item .avatar-wrap{ float: left;padding-top:2px;}
+.main .item .avatar-wrap .avatar{width:30px;height: 30px;vertical-align: top;}
+.main .item .item-describe-txt{overflow:hidden;padding-left:8px;}
+
+.main .item .item-op{ position: absolute;height:32px;right:15px;top:-50px;opacity:0}
+.main .item:hover .item-op{opacity:1;top:15px;-moz-transition:.2s;-webkit-transition:.2s;transition:.2s;}
+.main .item .item-op .ui-icon{ float: left;width:32px;height:32px;margin-left:8px;}
+
+.main .item .item-op .icon-like{ background-image: url(../slice//icon-like.png);}
+.main .item .item-op .icon-like:hover{background-image: url(../slice//icon-like-hover.png);}
+.main .item .item-op .icon-share{ background-image: url(../slice//icon-share.png);}
+.main .item .item-op .icon-share:hover{ background-image: url(../slice//icon-share-hover.png);}
+
+
+.main .item .item-sd{ position:absolute;bottom:-16px;height:16px;width:100%;background: url(../image/item-sd.png) center bottom no-repeat;}
