@@ -4,7 +4,7 @@ class login extends CI_Controller {
 
     public function index()
     {
-    	require_once('../config/weibo_config.php');
+    	require_once('config/weibo_config.php');
         $auth_params = array('client_id' => WB_AKEY, 'client_secret' => WB_SKEY,'access_token' => NULL,'refresh_token'=>NULL);
         $this->load->library('saetoauthv2', $auth_params);
         $o=$this->saetoauthv2;

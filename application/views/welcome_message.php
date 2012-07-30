@@ -69,7 +69,14 @@
 <div id="container">
 	<h1>Welcome to CodeIgniter!</h1>
 
+
 	<div id="body">
+		<p>用户上传图片列表</p>
+		<code><a href="index.php/imglist">index.php/imglist</a></code>
+
+		<p>用户上传图片表单</p>
+		<code><a href="index.php/uploadcat">index.php/uploadcat</a></code>
+
 		<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
 
 		<p>If you would like to edit this page you'll find it located at:</p>
