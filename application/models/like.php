@@ -14,7 +14,7 @@ class Like extends CI_Model {
     {
         $this->load->database();
         $this->db->select('likeimgid');
-        $this->db->from('like');
+        $this->db->from('imglike');
         $this->db->where('likeimgid',$imgid);
         $count=$this->db->count_all();
         return $count;
@@ -30,8 +30,29 @@ class Like extends CI_Model {
             'likeimgid'=>$imgid,
             'likeuid'=>$uid,
             'likedate'=>$date);
-        $this->db->insert('like', $data); 
+        $this->db->insert('imglike', $data); 
+        
+        $this->insertImg($imgid);
+
     }  
+
+    public function insertImg($imgid)
+    {
+        $this->load->database();
+    
+        $this->db->select('imglike');
+        $this->db->from('img');
+        $this->db->where('imgid',$imgid);   
+        $query=$this->db->get();
+        $data_array=$query->result_array();
+        $imglikenum=$data_array[0]['imglike'];
+        
+        $newdata = array('imglike' => $imglikenum+1);
+        $this->db->where('imgid', $imgid);
+        $this->db->update('img', $newdata); 
+    }
+
+
     
 
 }

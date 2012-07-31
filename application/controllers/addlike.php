@@ -1,6 +1,6 @@
 <?php
 
-class testlike extends CI_Controller {
+class addlike extends CI_Controller {
     
     public function __construct()
     {
@@ -9,6 +9,7 @@ class testlike extends CI_Controller {
 
     public function index($imgid=2)
     {
+        if(isset($_POST['imgid'])) $imgid=$_POST['imgid'];
         session_start();
         if(isset($_SESSION['user'])){
         $uid=$_SESSION['user']['uid'];
@@ -18,11 +19,7 @@ class testlike extends CI_Controller {
         else echo("You are not login!");
     }
     
-    public function getlike()
-    {
 
-       
-    }
 
 
 }

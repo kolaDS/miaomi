@@ -1,4 +1,5 @@
 <!-- 图片列表 -->	
+<form name="" id="mainForm">
 <div class="main-list" id="mainList">
 	<?php foreach ($imglist as $item):?>
 	<div class="item">
@@ -13,7 +14,7 @@
 					<p class="item-describe-txt"><?php echo($item['imgtext']);?></p>
 			</div>
 			<div class="item-op">
-				<a href="#" class="ui-icon icon-like">喜欢</a>
+				<a href="#" class="ui-icon icon-like"  imgid="<?php echo($item['imgid']);?>">喜欢</a>
 				<a href="#" class="ui-icon icon-share">分享</a>
 			</div>
 		</div>
@@ -22,4 +23,5 @@
 	</div>
 	<?php endforeach;?>
 </div>
+</form>
 <!-- 图片列表 -->	
