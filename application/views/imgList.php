@@ -6,7 +6,7 @@
 		<div class="item-inner">
 			<div class="item-pic"><img src="../public/uploads/<?php echo($item['imgname']);?>.jpg" /></div>
 			<div class="item-info">
-				<p class="item-info-num"><span class="num-like"><?php echo($item['imglike']);?>喜欢</span><span class="num-share">2分享</span></p>
+				<p class="item-info-num"><span class="num-like"><span class="num-like-detail" imgid="<?php echo($item['imgid']);?>"><?php echo($item['imglike']);?></span>喜欢</span><span class="num-share">2分享</span></p>
 				<p class="item-info-date"><?php echo($item['imgdate']);?></p>
 			</div>
 			<div class="item-describe">
@@ -14,8 +14,8 @@
 					<p class="item-describe-txt"><?php echo($item['imgtext']);?></p>
 			</div>
 			<div class="item-op">
-				<a href="#" class="ui-icon icon-like"  imgid="<?php echo($item['imgid']);?>">喜欢</a>
-				<a href="#" class="ui-icon icon-share">分享</a>
+				<a href="javascript:return false;" class="ui-icon icon-like"  imgid="<?php echo($item['imgid']);?>">喜欢</a>
+				<a href="javascript:return false;" class="ui-icon icon-share">分享</a>
 			</div>
 		</div>
 

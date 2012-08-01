@@ -65,7 +65,9 @@
 					type:"POST",
 					url:"addlike",
 					data:"imgid="+imgid,
-					success:function(){alert('你赞得好！');}
+					success:function(){						
+						
+					}
 				});
 			});
 			  
