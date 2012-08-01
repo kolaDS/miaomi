@@ -6,12 +6,13 @@
 		<div class="item-inner">
 			<div class="item-pic"><img src="../public/uploads/<?php echo($item['imgname']);?>.jpg" /></div>
 			<div class="item-info">
+				<p class="item-describe-txt"><?php echo($item['imgtext']);?></p>
 				<p class="item-info-num"><span class="num-like"><span class="num-like-detail" imgid="<?php echo($item['imgid']);?>"><?php echo($item['imglike']);?></span>喜欢</span><span class="num-share">2分享</span></p>
-				<p class="item-info-date"><?php echo($item['imgdate']);?></p>
 			</div>
 			<div class="item-describe">
 					<a target="_blank" class="avatar-wrap" href="http://weibo.com/<?php echo($item['uurl']);?>"><img class="avatar" src="<?php echo($item['uavatar']); ?>"/></a>
-					<p class="item-describe-txt"><?php echo($item['imgtext']);?></p>
+
+					<p class="item-upload-info">上传于 <?php echo($item['imgdate']);?></p>
 			</div>
 			<div class="item-op">
 				<a href="javascript:return false;" class="ui-icon icon-like"  imgid="<?php echo($item['imgid']);?>">喜欢</a>
@@ -24,4 +25,5 @@
 	<?php endforeach;?>
 </div>
 </form>
-<!-- 图片列表 -->	
+<!-- 图片列表 -->
+<div class="loading-tips-bar"><p class="loading-txt">喵~没有更多了~</p></div>
