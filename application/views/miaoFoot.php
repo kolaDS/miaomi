@@ -4,7 +4,7 @@
 <!--底部 Str-->
 <div class="footer">Copyright <span>&copy;</span> <a href="http://himeters.com/">meters</a>/<a href="http://hikola.com/">kola</a> All Rights Reserved.</div>
 <!--底部 End-->
-
+</div>
 </body>
  
 	<script type="text/javascript" src="../public/js/jquery-1.7.2.min.js"></script>	
