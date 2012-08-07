@@ -5,6 +5,10 @@
 <div class="footer">Copyright <span>&copy;</span> <a href="http://himeters.com/">meters</a>/<a href="http://hikola.com/">kola</a> All Rights Reserved.</div>
 <!--底部 End-->
 </div>
+<!--大图查看弹出层 Str-->
+<div id="zoomPreview" class="zoom-preview">
+</div>
+<!--大图查看弹出层 End-->
 </body>
  
 	<script type="text/javascript" src="../public/js/jquery-1.7.2.min.js"></script>	
@@ -12,6 +16,8 @@
 	<script type="text/javascript" src="../public/js/jquery.masonry.min.js"></script>
 	<script type="text/javascript" src="../public/js/jquery.infinitescroll.min.js"></script>
 	<script type="text/javascript" src="../public/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../public/js/jquery.mousewheel.min.js"></script>
+	<script type="text/javascript" src="../public/js/miaomi.js"></script>
 	<script type="text/javascript">
 	$(function(){
 
@@ -19,9 +25,10 @@
 		function do_masonry()
 		{
 			var $container = $('#mainList');
-			$container.imagesLoaded( function(){
+
+			$container.imagesLoaded( function(){//imagesloaded 方法导致ie8，ie7下瀑布流不生效
 			  $container.masonry({
-			    itemSelector : '.item',			    
+			    itemSelector : '.item'
 			  });
 			  // 给图片加点击弹出层事件
 			  $(".source_img").live("click",function(){

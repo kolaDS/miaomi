@@ -4,7 +4,7 @@
 	<?php foreach ($imglist as $item):?>
 	<div class="item">
 		<div class="item-inner">
-			<div class="item-pic"><img src="../public/uploads/<?php echo($item['imgname']);?>.jpg" /></div>
+			<div class="item-pic"><img src="../public/uploads/<?php echo($item['imgname']);?>.jpg" class="J-miaoPic"/></div>
 			<div class="item-info">
 				<p class="item-describe-txt"><?php echo($item['imgtext']);?></p>
 				<p class="item-info-num"><span class="num-like"><span class="num-like-detail" imgid="<?php echo($item['imgid']);?>"><?php echo($item['imglike']);?></span>喜欢</span><span class="num-share">2分享</span></p>
