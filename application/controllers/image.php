@@ -8,10 +8,11 @@ class image extends CI_Controller {
         
     }
 
-    public function index($imgid=0,$imguid=0)
+    public function index($imgid=0)
     {   
         $this->load->database();
         $this->db->select('likeimgid');
+
 
 
         // 需要获取的数据
