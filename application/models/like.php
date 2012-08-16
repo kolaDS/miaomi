@@ -6,10 +6,8 @@ class Like extends CI_Model {
     {
         parent::__construct();
     }
-    
-    
-    
 
+    // 获取赞的计数
     function getCountImg($imgid)
     {
         $this->load->database();
@@ -36,20 +34,16 @@ class Like extends CI_Model {
 
     }  
 
-    public function insertImg($imgid)
+
+    public function getUserLike($imgid,$num=10)
     {
-        $this->load->database();
-    
-        $this->db->select('imglike');
-        $this->db->from('img');
-        $this->db->where('imgid',$imgid);   
+        $this->load->database();    
+        $this->db->select('*');
+        $this->db->from('imglike');
+        $this->db->where('likeimgid',$imgid);   
         $query=$this->db->get();
         $data_array=$query->result_array();
-        $imglikenum=$data_array[0]['imglike'];
-        
-        $newdata = array('imglike' => $imglikenum+1);
-        $this->db->where('imgid', $imgid);
-        $this->db->update('img', $newdata); 
+        print_r($data_array);
     }
 
 

@@ -11,8 +11,7 @@ class imglist extends CI_Controller {
     public function index()
     {   
         $this->load->model("img","userUploadImg");
-        $imgdata['imglist']=$this->userUploadImg->getImgUser(0,50);
-        // print_r($imgdata);
+        $imgdata['imglist']=$this->userUploadImg->getImgUser(0,50);        
         $this->load->view("miaoHead");
         $this->load->view("imgList",$imgdata);        
         $this->load->view("miaoFoot");     
