@@ -38,11 +38,18 @@ class commentlist extends CI_Controller {
       
     }
 
-    public function getCommentList($imgid)
+
+    // 
+    public function getCommentList()
     {
+        $imgid=$this->input->post('imgid',true);        
         $this->load->model("comment","metersComment");        
-        $this->metersComment->getCommentList($imgid);
+        $commentlist_data=$this->metersComment->getCommentList($imgid);        
+        echo json_encode($commentlist_data);
+
     }
+
+
 
     public function getWhoLike($imgid)
     {

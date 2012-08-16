@@ -17,7 +17,7 @@ class uploadcat extends CI_Controller {
        
     }
 
-    public function do_upload()
+    public function do_upload($catid=2)
     {
         session_start();
         date_default_timezone_set('UTC');
@@ -25,12 +25,12 @@ class uploadcat extends CI_Controller {
         {
             $imgname=date("YmdHis");
             $imguid=$_SESSION['user']['uid'];
-            $imgcatid=$_POST['imgcatid'];
+            $imgcatid=$catid;
             $imgtext=$_POST['imgtext'];            
             $imgdate=date("ymdHis");
 
             $config['file_name'] = $imgname;
-            $config['upload_path'] = '../uploads';
+            $config['upload_path'] = 'public/uploads';
             $config['allowed_types'] = 'gif|jpg|png';
             $config['max_size'] = '10000';
             $config['max_width']  = '1024';
@@ -49,8 +49,7 @@ class uploadcat extends CI_Controller {
                 $imgdata = array('upload_data' => $this->upload->data());
                 $formdata=array('imgusrid'=>$imguid,'imgcatid'=>$imgcatid,'imgtext'=>$imgtext,'imgdata'=>$imgdata);
                 $data=array('imgtext'=> $imgtext,'imguid'=>$imguid,'imgcatid'=>$imgcatid,'imgname'=>$imgname);
-                $this->load->model('img');
-                print_r($data);
+                $this->load->model('img');                
                 $this->img->insertImg($data);
                 // $this->load->view('upload_success', $formdata);
             }

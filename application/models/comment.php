@@ -18,7 +18,8 @@ class Comment extends CI_Model {
         return $count;
     }
 
-    function getCommentList($imgid=1)
+    // 返回评论列表
+    function getCommentList($imgid)
     {
         $this->load->database();
         $this->db->select('*');
@@ -26,8 +27,9 @@ class Comment extends CI_Model {
         $this->db->where('comment_imgid',$imgid);
         $query=$this->db->get();
         $data_array=$query->result_array();        
-        print_r($data_array);
+        return $data_array;
     }
+
 
     // 插入喜欢记录
     function insertComment($imgid,$uid,$uname,$text)
