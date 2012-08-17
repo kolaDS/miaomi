@@ -34,7 +34,7 @@ class Like extends CI_Model {
 
     }  
 
-
+    // 获取喜欢某张图片的用户数据
     public function getUserLike($imgid,$num=10)
     {
         $this->load->database();    
@@ -43,10 +43,8 @@ class Like extends CI_Model {
         $this->db->where('likeimgid',$imgid);   
         $query=$this->db->get();
         $data_array=$query->result_array();
-        print_r($data_array);
+        return ($data_array);
     }
-
-
     
 
 }

@@ -3,7 +3,14 @@
 var Miaomi={
 	log:function(i){
 		console.log(i);
+	},
+	pop:function(htmlString){
+
+	},
+	popImg:function(obj){
+
 	}
+
 };
 
 (function($,M){
