@@ -33,3 +33,7 @@ pics.each(function(){
 });
 
 //关闭弹出层
+
+//上传气泡
+var $btnUpload = $("#btnUpload");
+$btnUpload.click(function(){console.log(1)});

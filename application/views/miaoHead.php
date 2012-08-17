@@ -28,7 +28,7 @@
 						</li>
 					</ul>
 				</div>
-				<a href="#" class="btn-upload txt-hidden">上传喵图<input type="file" class="file-upload" size="3"></a>
+				<a href="#" class="btn-upload txt-hidden">上传喵图<input type="file" class="file-upload" id="btnUpload"  size="3"></a>
 
 			</div>
 		</div>
