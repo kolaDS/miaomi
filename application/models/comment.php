@@ -31,7 +31,7 @@ class Comment extends CI_Model {
     }
 
 
-    // 插入喜欢记录
+    // 插入评论记录
     function insertComment($imgid,$uid,$uname,$text)
     {
         date_default_timezone_set('UTC');        
