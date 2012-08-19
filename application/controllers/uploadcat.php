@@ -22,8 +22,6 @@ class uploadcat extends CI_Controller {
         session_start();
         date_default_timezone_set('UTC');
         //Todo hard code
-        $_SESSION['user']['uid']="2873082872";
-        $_SESSION['user']['uname']="kolawang";
         if(isset($_SESSION['user']))
         {
             
