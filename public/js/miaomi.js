@@ -211,7 +211,7 @@ var Miaomi={
 			</div>\
 		    </div>";
 		    M.pop(commlist_HTML); 
-		    $(".btn-submit").live("click",function(){
+		    $(".btn-submit").click(function(){
 		    	var comm_text=$(this).parents(".mod-comment-report").find(".report-textarea").val();
 		    	var comm_imgid=obj.imgid;
 		    	M.log(comm_imgid);
