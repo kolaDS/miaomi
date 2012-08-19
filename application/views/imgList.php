@@ -17,8 +17,8 @@
 					<p class="item-upload-info">上传于 <?php echo($item['imgdate']);?></p>
 			</div>
 			<div class="item-op">
-				<a href="javascript:return false;" class="ui-icon icon-like"  imgid="<?php echo($item['imgid']);?>">喜欢</a>
-				<a href="javascript:return false;" class="ui-icon icon-share">分享</a>
+				<a href="javascript:void(0);" class="ui-icon icon-like"  imgid="<?php echo($item['imgid']);?>">喜欢</a>
+				<a href="javascript:void(0);" class="ui-icon icon-share">分享</a>
 			</div>
 		</div>
 

@@ -25,6 +25,8 @@ class Comment extends CI_Model {
         $this->db->select('*');
         $this->db->from('comment');
         $this->db->where('comment_imgid',$imgid);
+        $this->db->order_by('comment_date',"ASC");
+        $this->db->join('user', 'comment.comment_uid = user.uid');
         $query=$this->db->get();
         $data_array=$query->result_array();        
         return $data_array;

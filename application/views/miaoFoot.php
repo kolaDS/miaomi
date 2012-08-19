@@ -72,22 +72,7 @@
 		}
 
 
-		$(document).ready(function() {
-			// 使用 jQuery 异步提交表单
-			$('.icon-like').live("click",function(){
-				var imgid=$(this).attr('imgid');
-				$.ajax({
-					type:"POST",
-					url:"addlike",
-					data:"imgid="+imgid,
-					success:function(){						
-						
-					}
-				});
-			});
-			  
-			});
-		// 给图片加点击赞操作
+		
 			  
 
 		do_masonry();

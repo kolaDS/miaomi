@@ -4,7 +4,7 @@
 </head>
 <body>
 </body>
-<script type="text/javascript" src="../public/js/jquery-1.8.0.js"></script>
+<script type="text/javascript" src="public/js/jquery-1.8.0.js"></script>
 <script type="text/javascript">
 
 var Miaomi={
@@ -17,7 +17,7 @@ var Miaomi={
 
 	M.getComment=function(imgid){
 		// post方法获取数据
-		$.post("../index.php/commentlist/getCommentList", { "imgid": imgid},
+		$.post("uploadcomment/uploadCommentAPI", { "imgid": imgid},
 			// 获得数据
 		  function(data){
 		  	// 转换成json
@@ -30,7 +30,7 @@ var Miaomi={
 	}
 
 
-	M.getComment(12);
+	M.getComment(15);
 
 })(jQuery,Miaomi);
 

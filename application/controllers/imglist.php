@@ -33,7 +33,14 @@ class imglist extends CI_Controller {
         return $imgdata;
     }
 
+    public function getWhoLikeThisImg()
+    {
+        $imgid=$this->input->post("imgid");
+        $this->load->model("like","getWho");
+        $userListData=$this->getWho->getUserLike($imgid);
+        echo json_encode($userListData);
 
+    }
 
       
 }

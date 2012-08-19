@@ -72,10 +72,14 @@ class uploadComment extends CI_Controller {
     // 
     public function getCommentList()
     {
-        $imgid=$this->input->post('imgid',true);        
-        $this->load->model("comment","metersComment");        
-        $commentlist_data=$this->metersComment->getCommentList($imgid);        
-        echo json_encode($commentlist_data);
+        $imgid=$this->input->post('imgid',true);
+        if($imgid) 
+        { 
+            $this->load->model("comment","metersComment");        
+            $commentlist_data=$this->metersComment->getCommentList($imgid);        
+            echo json_encode($commentlist_data);
+        }
+        else echo 0;
 
     }
 

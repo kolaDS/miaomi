@@ -22,6 +22,7 @@ a:hover{text-decoration:none;color:#cc6724}
 .avatar{border-radius:3px;}
 .ui-icon{ display: inline-block;line-height:100px;overflow:hidden;}
 .bg-wrapper{ background:url(../image/bg-main-bottom.jpg) center bottom no-repeat fixed;background-size:100% 347px;}
+.loading{background: url("../image/loading.gif") center center no-repeat;}
 /* 响应式容器宽度 */
 @media screen and (min-width:1435px) {
 	.wrapper{width:1382px;}
