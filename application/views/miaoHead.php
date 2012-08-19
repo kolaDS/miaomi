@@ -28,11 +28,11 @@
 						</li>
 					</ul>
 				</div>
-				<a href="#" class="btn-upload txt-hidden">上传喵图<input type="file" class="file-upload" size="3"></a>
-				<div class="pop_uploadcat" style="position:absolute;right:0;top:50px;background:#fff">
+				
+				<div class="fn_uploadcat">
 					<form action="uploadcat/do_upload" target="unvisibleiframe" method="post" accept-charset="utf-8" enctype="multipart/form-data">
-						<li>description<input type="text" name="imgtext"></li>
-						<li>img<input type="file" name="userfile" size="20"></li>						
+						description<input type="text" name="imgtext">
+						<a href="#" class="btn-upload txt-hidden">上传喵图<input type="file" name="userfile" class="file-upload" size="3"></a>
 						<input type="submit" value="upload">
 					</form>		
 					<iframe src="" name="unvisibleiframe" style="visibily:hidden;width:0;height:0;position:absolute;left:-999px;top:-999px"></iframe>

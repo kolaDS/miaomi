@@ -68,6 +68,7 @@ a:hover{text-decoration:none;color:#cc6724}
 .header-inner .header-bar .btn-upload:hover{background-image: url(../slice/btn-upload-hover.png);}
 .header-inner .header-bar .btn-upload:active{background-image: url(../slice/btn-upload-active.png);}
 
+.header-inner .header-bar .fn_uploadcat{ float: right;}
 .header-inner .header-bar .file-upload{outline:0 none;cursor:pointer;top:0;left:-80px;*top:-20px;*left:-150px;zoom:2.5;-moz-transform:scale(3);-webkit-transform:scale(3);opacity:0;filter:Alpha(opacity=0);}
 
 
