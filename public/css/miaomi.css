@@ -161,5 +161,5 @@ a:hover{text-decoration:none;color:#cc6724}
 /* 大图预览 */
 .zoom-preview{ position: fixed;z-index:50;overflow-y:scroll; background:rgba(255,255,255,.3);left:0;right:0;bottom:0;top:0;width:100%;height:0;-moz-transition:background 1s;-webkit-transition:background 1s;transition:background 1s;
 	background-image:url(../image/mask-ie.png) \9; /* ie7,8 下渐变滤镜导致滚动轴事件失效，用图片代替*/}
-.zoom-show{height:100%;background:rgba(0,0,0,.9);}
+.zoom-show{height:100%;background:rgba(200,200,200,.95);}
 :root .zoom-show{filter:none;background-image:none;}

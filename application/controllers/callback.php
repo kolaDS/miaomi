@@ -29,14 +29,13 @@ class callback extends CI_Controller {
 			setcookie( 'weibojs_'.$oauth->client_id, http_build_query($token) );
 			$uid_array=$client->get_uid();	
            	$uid=$uid_array['uid'];
-           	$userdata=$this->getUserInfo($uid);
-            $_SESSION['user']['uid']=$userdata['uid'];
-            $_SESSION['user']['uname']=$userdata['uname'];
+           	$userdata=$this->getUserInfo($uid);           
            	if($this->checkIfHasThisUser($uid)) echo("Welcome back ! {$userdata['uname']}");
            	else {
                 $this->insertUser($userdata);
                 echo("Hello world!{$userdata['uname']}");
             }
+            $this->setSession($userdata);
 			return true;
 			
 		}
@@ -75,6 +74,10 @@ class callback extends CI_Controller {
     	$query=$this->db->query("SELECT uname from user where uid =" . $uid);
     	if($query->num_rows() > 0) return true;
     	else false;
+    }
+
+    public function setSession($userArray){
+        $_SESSION['user']=$userArray;        
     }
 
     

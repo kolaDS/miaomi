@@ -10,13 +10,30 @@ class imglist extends CI_Controller {
 
     public function index()
     {   
-        $this->load->model("img","userUploadImg");
-        $imgdata['imglist']=$this->userUploadImg->getImgUser(0,50);        
-        $this->load->view("miaoHead");
-        $this->load->view("imgList",$imgdata);        
+        $this->load->view("miaoHead",$this->getUserInfo());
+        $this->load->view("imgList",$this->getImageListData());
         $this->load->view("miaoFoot");     
        
     }
+
+
+    public function getUserInfo()
+    {
+        session_start();        
+        if(isset($_SESSION['user']))
+            return $_SESSION['user'];
+        else return false;
+    }
+
+    // 得到图片信息的列表
+    public function getImageListData()
+    {
+        $this->load->model("img","userUploadImg");
+        $imgdata['imglist']=$this->userUploadImg->getImgUser(0,50);
+        return $imgdata;
+    }
+
+
 
       
 }
