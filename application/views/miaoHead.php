@@ -28,9 +28,13 @@
 						</li>
 					</ul>
 				</div>
+				<?php if(isset($uid)): ?>
 				<div class="head-user" id="head-user" uid="<?php echo $uid ?>" uname="<?php echo $uname?>" uurl="<?php echo $uurl?>" uavatar="<?php echo $uavatar ;?>"  style="height:50px;line-height:50px;position:absolute;right:160px;top:0;text-align:right;">
 					<a  href="#" style="vertical-align:middle;"><img src="<?php echo $uavatar ;?>" style="display:inline-block;;width:20px;height:20px;"></a> <span><?php echo $uname; ?>！</span>
 				</div>
+				<?php else: ?>
+				<div class="head-user" style="height:50px;line-height:50px;position:absolute;right:160px;top:0;text-align:right;"><a href="/miaomi/login">请登陆哦～</a></div>
+				<?php endif;?>
 				<a href="#" class="btn-upload txt-hidden">上传喵图<input type="file" class="file-upload" size="3"></a>
 				<div class="pop_uploadcat" style="position:absolute;right:0;top:50px;background:#fff">
 					<form action="uploadcat/do_upload" target="unvisibleiframe" method="post" accept-charset="utf-8" enctype="multipart/form-data">
