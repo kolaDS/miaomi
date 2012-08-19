@@ -122,7 +122,7 @@ a:hover{text-decoration:none;color:#cc6724}
 .pop-preview .pic-info .nickname{font-size:16px;font-weight:700;}
 .pop-preview .pic-info .icon-adorn{ position: absolute;right:0;top:0;width:122px;height:70px;background-image: url(../slice/bg-upload-hd.png);}
 .pop-preview .pic-preview{padding:20px 20px 15px 20px;border-top:1px solid #DCD9D4;}
-.pop-preview .pic-preview-inner{overflow:hidden; position: relative;}
+.pop-preview .pic-preview-inner{overflow:hidden; position: relative;text-align: center;}
 .pop-preview .pic-preview-inner .pic{max-width:640px;}
 .pop-preview .pic-preview-inner .item-op{right:10px;}
 .pop-preview .pic-preview-inner:hover .item-op{opacity:1;top:10px;-moz-transition:.2s;-webkit-transition:.2s;transition:.2s;}

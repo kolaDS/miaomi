@@ -7,6 +7,10 @@
 </div>
 <!--大图查看弹出层 Str-->
 <div id="zoomPreview" class="zoom-preview">
+	<div id='popPreview' class='pop-wrapper pop-preview'>
+		<div id="innerPreview" class='pop-inner'>
+		</div>
+	</div>
 </div>
 <!--大图查看弹出层 End-->
 </body>
