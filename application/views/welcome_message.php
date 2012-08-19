@@ -71,14 +71,20 @@
 
 
 	<div id="body">
-		<p>用户上传图片列表</p>
-		<code><a href="index.php/imglist">index.php/imglist</a></code>
-
-		<p>用户登陆</p>
-		<code><a href="index.php/login">index.php/login</a></code>
-
-		<p>用户上传图片表单</p>
-		<code><a href="index.php/uploadcat">index.php/uploadcat</a></code>
+		<p>
+		<code><a href="imglist">用户上传图片列表</a></code>
+		</p>
+		<p>
+		<code><a href="login">用户登陆</a></code>
+		</p>
+		<p>
+		<code><a href="uploadcat">用户上传图片表单</a></code>
+		</p>
+		<p>
+			<code>
+				<a href="initsession">初始化session</a>
+			</code>
+		</p>
 		
 
 		<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="user_guide/">User Guide</a>.</p>
