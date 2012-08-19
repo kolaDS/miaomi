@@ -37,7 +37,7 @@ var Miaomi={
 			'uurl':$userEL.attr("uurl"),
 			'uavatar':$userEL.attr("uavatar")
 		};
-	},
+	}
 
 };
 
@@ -56,21 +56,21 @@ var Miaomi={
 			picPreviewMod = "";
 
 		//显示大图弹出层
-		function picPreviewShow(){			
+		function picPreviewShow(){
 			var sTop = html.scrollTop();
 			html.addClass('noscroll');
-			html.scrollTop(sTop);	
+			html.scrollTop(sTop);
 			if(!picPreviewed){
 				 picPreviewContainer.addClass('zoom-show');
 				 // picPreviewContainer.addClass('zoom-show').append(picPreviewMod);
 				picPreviewed = 1;
 			}
-			
+
 		}
 
 		picPreviewContainer.live('click',function(e){
 				e.stopPropagation();
-				var $target = $(e.target);				
+				var $target = $(e.target);
 				if($target.is(picPreviewContainer)){
 					picPreviewContainer.removeClass('zoom-show');
 					previewInner.empty();
@@ -78,25 +78,19 @@ var Miaomi={
 					picPreviewed = 0;
 			}
 		});
-		
-		pics.each(function(){			
-			var $pic = $(this);			
+
+		pics.each(function(){
+			var $pic = $(this);
 			$pic.live('click',function(){
 				// 得到obj
 				var data=M.getImgInfo($(this));
 				// 展示图片
-				M.popImg(data);	
-				M.log(M.currentUser);
+				M.popImg(data);
+//				M.log(M.currentUser);
 				// 加载评论
 				M.popCommenList(data);
 				var sTop = html.scrollTop();
-				html.addClass('noscroll');
-				html.scrollTop(sTop);	
-				if(!picPreviewed){
-					 picPreviewContainer.addClass('zoom-show');
-					 // picPreviewContainer.addClass('zoom-show').append(picPreviewMod);
-					picPreviewed = 1;
-				}
+				picPreviewShow();
 			})
 		});
 	};
@@ -144,10 +138,10 @@ var Miaomi={
 		<div class='more-info-list'>\
 			<h3>他们也喜欢这只喵星人：</h3>\
 			<ul class='list-pic'>\
-				<li><a href='#'><img src='http://www.getimg.in/img/50x50tbluecat'alt=''></a></li>\
-				<li><a href='#'><img src='http://www.getimg.in/img/50x50tredcat'alt=''></a></li>\
-				<li><a href='#'><img src='http://www.getimg.in/img/50x50tsmallcat'alt=''></a></li>\
-				<li><a href='#'><img src='http://www.getimg.in/img/50x50tblackcat'alt=''></a></li>\
+				<li><a href='#'><img src='http://www.getimg.in/img/50x50tbluecat' alt=''></a></li>\
+				<li><a href='#'><img src='http://www.getimg.in/img/50x50tredcat' alt=''></a></li>\
+				<li><a href='#'><img src='http://www.getimg.in/img/50x50tsmallcat' alt=''></a></li>\
+				<li><a href='#'><img src='http://www.getimg.in/img/50x50tblackcat' alt=''></a></li>\
 			</ul>\
 		</div>\
 	</div>\
@@ -155,20 +149,20 @@ var Miaomi={
 		<div class='more-info-list list-a'>\
 			<h3>他们也喜欢：</h3>\
 			<ul class='list-pic'>\
-				<li><a href='#'><img src='http://www.getimg.in/img/50x50tbluecat'alt=''></a></li>\
-				<li><a href='#'><img src='http://www.getimg.in/img/50x50tredcat'alt=''></a></li>\
-				<li><a href='#'><img src='http://www.getimg.in/img/50x50tsmallcat'alt=''></a></li>\
-				<li><a href='#'><img src='http://www.getimg.in/img/50x50tblackcat'alt=''></a></li>\
-				<li><a href='#'><img src='http://www.getimg.in/img/50x50tblackcat'alt=''></a></li>\
+				<li><a href='#'><img src='http://www.getimg.in/img/50x50tbluecat' alt=''></a></li>\
+				<li><a href='#'><img src='http://www.getimg.in/img/50x50tredcat' alt=''></a></li>\
+				<li><a href='#'><img src='http://www.getimg.in/img/50x50tsmallcat' alt=''></a></li>\
+				<li><a href='#'><img src='http://www.getimg.in/img/50x50tblackcat' alt=''></a></li>\
+				<li><a href='#'><img src='http://www.getimg.in/img/50x50tblackcat' alt=''></a></li>\
 			</ul>\
 		</div>\
 		<div class='more-info-list list-b'>\
 			<h3>他们也喜欢：</h3>\
 			<ul class='list-pic'>\
-				<li><a href='#'><img src='http://www.getimg.in/img/50x50tbluecat'alt=''></a></li>\
-				<li><a href='#'><img src='http://www.getimg.in/img/50x50tredcat'alt=''></a></li>\
-				<li><a href='#'><img src='http://www.getimg.in/img/50x50tsmallcat'alt=''></a></li>\
-				<li><a href='#'><img src='http://www.getimg.in/img/50x50tblackcat'alt=''></a></li>\
+				<li><a href='#'><img src='http://www.getimg.in/img/50x50tbluecat' alt=''></a></li>\
+				<li><a href='#'><img src='http://www.getimg.in/img/50x50tredcat' alt=''></a></li>\
+				<li><a href='#'><img src='http://www.getimg.in/img/50x50tsmallcat' alt=''></a></li>\
+				<li><a href='#'><img src='http://www.getimg.in/img/50x50tblackcat' alt=''></a></li>\
 			</ul>\
 		</div>\
 	</div>";	
@@ -180,16 +174,16 @@ var Miaomi={
 			"uploadComment/getCommentList",
 		 	{ "imgid": obj.imgid}
 		 ).success(function(data) {// 转换成json
-		    commlist=eval(data);
+		    var commlist=eval(data);
 		    // 遍历
 		    var commlist_HTML="<div class='mod-comment'>\
 			<div class='mod-comment-list'>\
 				<ul class='list'>";
-		    for(index in commlist)
+		    for(var index in commlist)
 		    	{
 		    		commlist_HTML+="<li class='list-item'>\
 						<div class='mod-avatar-txt'>\
-							<a href='#' class='avatar-wrap'><img src='http://www.getimg.in/img/50x50tsunyanzi'alt='' class='avatar'></a>\
+							<a href='#' class='avatar-wrap'><img src='http://www.getimg.in/img/50x50tsunyanzi' alt='' class='avatar'></a>\
 							<div class='txt-wrap'>\
 								<p class='nickname-wrap'>\
 									<a href='#' class='nickname'>"+commlist[index].comment_uname+"</a>\
@@ -199,13 +193,13 @@ var Miaomi={
 							</div>\
 						</div>\
 					</li>";
-					M.log(commlist[index]);
+//					M.log(commlist[index]);
 				}
 
 		    commlist_HTML+="</ul></div>\
 		    <div class='mod-comment-report' comment_imgid='"+obj.imgid+"'>\
 				<div class='avatar-wrap'>\
-					<img src='http://www.getimg.in/img/50x50tsunyanzi'alt='' class='avatar'>\
+					<img src='http://www.getimg.in/img/50x50tsunyanzi' alt='' class='avatar'>\
 				</div>\
 				<div class='report-container'>\
 					<div class='report-textarea-wrapper'>\
