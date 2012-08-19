@@ -31,15 +31,15 @@ class uploadComment extends CI_Controller {
         session_start();
         $this->load->model("comment","userComment");                    
         $imgid=$this->input->post('comment_imgid',true);
-        $uid=$_SESSION['user']['uid'];
+        if(isset($_SESSION['user'])) $uid=$_SESSION['user']['uid'];
+        else $uid="";
         // 判断imgid是否为空
         if(!$imgid){echo (2);}
-        else if($uid){
-            
+        else if($uid){            
             $uname=$_SESSION['user']['uname'];
             $text=$this->input->post('comment_text',true);
-            if($this->userComment->insertComment($imgid,$uid,$uname,$text)) {echo(1);}       
-            else {echo(0);}
+            $this->userComment->insertComment($imgid,$uid,$uname,$text);
+            echo(1);
         }
         else echo(3);
       
@@ -59,10 +59,10 @@ class uploadComment extends CI_Controller {
             
             $uname=$_SESSION['user']['uname'];
             $text=$this->input->post('comment_text',true);
-            // 上传成功
-            if($this->userComment->insertComment($imgid,$uid,$uname,$text)) return 1;
-            // 上传失败
-            else return 0;
+            
+            $this->userComment->insertComment($imgid,$uid,$uname,$text);
+             return 1;
+           
         }   
         // 用户木有登陆
         else return 3;

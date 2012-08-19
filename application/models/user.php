@@ -19,12 +19,9 @@ class User extends CI_Model {
     }
 
 
- function getUser($num=10)
-    {
-        $this->load->database();
-        $query=$this->db->query("SELECT * FROM user ORDER BY id DESC LIMIT {$num}");
-        $data_array=$query->result_array();
-        return $data_array;
+    function getUserInfo()
+    {    
+        
     }
 
     // 更新用户

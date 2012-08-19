@@ -1,6 +1,9 @@
 //关闭弹出层
 
 var Miaomi={
+	init:function(){
+		this.getCurrentUser();
+	},
 	$innerPreview:$("#innerPreview"),
 	// 打印方法
 	log:function(i){
@@ -10,6 +13,7 @@ var Miaomi={
 	pop:function(htmlString){
 		this.$innerPreview.append(htmlString);
 	},
+
 	uploadComment:function(imgid,text){
 		$.post(
 			"uploadComment/uploadCommentAPI",
@@ -19,7 +23,21 @@ var Miaomi={
 				}
 			).success(function(data){console.log(data)});
 
-	}
+	},
+	// 添加假评论数据
+	addFakeComment:function(){
+
+	},	
+	// 获取当前登陆用户的数据
+	getCurrentUser:function(){
+		var $userEL=$("#head-user");
+		this.currentUser={
+			'uid':$userEL.attr("uid"),
+			'uname':$userEL.attr("uname"),
+			'uurl':$userEL.attr("uurl"),
+			'uavatar':$userEL.attr("uavatar")
+		};
+	},
 
 };
 
@@ -68,6 +86,7 @@ var Miaomi={
 				var data=M.getImgInfo($(this));
 				// 展示图片
 				M.popImg(data);	
+				M.log(M.currentUser);
 				// 加载评论
 				M.popCommenList(data);
 				var sTop = html.scrollTop();
@@ -203,6 +222,7 @@ var Miaomi={
 		    	var comm_imgid=obj.imgid;
 		    	M.log(comm_imgid);
 		    	M.log(comm_text);
+		    	M.addFakeComment();		    	
 		    	M.uploadComment(comm_imgid,comm_text);
 		    });
 		});
@@ -212,5 +232,6 @@ var Miaomi={
 
 
 (function($,M){
+	M.init();
 	M.initPopImg();
 })(jQuery,Miaomi);
