@@ -71,7 +71,8 @@ a:hover{text-decoration:none;color:#cc6724}
 .header-inner .header-bar .fn_uploadcat{ float: right;}
 .header-inner .header-bar .file-upload{outline:0 none;cursor:pointer;top:0;left:-80px;*top:-20px;*left:-150px;zoom:2.5;-moz-transform:scale(3);-webkit-transform:scale(3);opacity:0;filter:Alpha(opacity=0);}
 
-
+/* 用户登录信息 上传文件 */
+.header-inner .header-bar .header-info{ float: right;}
 
 /* main */
 .main{padding-top:81px;}
@@ -121,7 +122,7 @@ a:hover{text-decoration:none;color:#cc6724}
 .pop-preview .pic-info{padding:15px 20px; position: relative;*zoom:1;}
 .pop-preview .pic-info .nickname-wrap{margin-top:-2px;padding-bottom:5px;}
 .pop-preview .pic-info .nickname{font-size:16px;font-weight:700;}
-.pop-preview .pic-info .icon-adorn{ position: absolute;right:0;top:0;width:122px;height:70px;background-image: url(../slice/bg-upload-hd.png);}
+.pop-preview .pic-info .icon-adorn{ position: absolute;right:0;top:0;width:122px;height:70px;background-image: url(../image/bg-upload-hd.png);}
 .pop-preview .pic-preview{padding:20px 20px 15px 20px;border-top:1px solid #DCD9D4;}
 .pop-preview .pic-preview-inner{overflow:hidden; position: relative;text-align: center;}
 .pop-preview .pic-preview-inner .pic{max-width:640px;}
