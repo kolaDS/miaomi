@@ -1,7 +1,7 @@
 //关闭弹出层
 
 var Miaomi={
-	init:function(){
+	initCurrentUser:function(){
 		this.getCurrentUser();
 	},
 	$innerPreview:$("#innerPreview"),
@@ -9,6 +9,20 @@ var Miaomi={
 	log:function(i){
 		console.log(i);
 	},
+    //瀑布流方法
+    initMasonry:function(){
+        var $container = $('#mainList');
+        $container.imagesLoaded(function () {//imagesloaded 方法导致ie8，ie7下瀑布流不生效
+                    $container.masonry({
+                        itemSelector:'.item'
+                    });
+        })
+    },
+    //瀑布流滚动
+    scrollList:function(){
+
+    },
+
 	// 插入浮层方法
 	pop:function(htmlString){
 		this.$innerPreview.append(htmlString);
@@ -80,7 +94,7 @@ var Miaomi={
 				{
 					list_HTML+= "<li><a uid='"+list[index].uid+"' href='#'><img src='"+list[index].uavatar+"' alt=''></a></li>";					
 				}
-				else list_HTML+="<li>矮油，还没有人喜欢哦～</li>"
+				else list_HTML+="<li>矮油，还没有人喜欢哦～</li>";
 
 				$(selector).append(list_HTML).removeClass('loading');
 			})
@@ -93,7 +107,7 @@ var Miaomi={
 	M.initIconLike=function(){
 		$(".icon-like").click(function(){M.addLike($(this))});
 		
-	},
+	};
 	// TODO 须重写
 	M.initPopImg=function(){
 		//图片点击事件
@@ -160,7 +174,7 @@ var Miaomi={
 			uavatar:El.attr("uavatar"),
 			imgtext:El.attr("imgtext"),
 			imgdate:El.attr("imgdate")
-		}
+		};
 		return obj;
 	};
 	// 通过传入一个obj信息，把图片展示出来
@@ -275,7 +289,9 @@ var Miaomi={
 
 
 (function($,M){
-	M.init();
+	M.initCurrentUser();
+    M.initMasonry();
 	M.initIconLike();
 	M.initPopImg();
+    M.scrollList();
 })(jQuery,Miaomi);

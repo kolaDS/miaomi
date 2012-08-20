@@ -28,11 +28,20 @@ class Img extends CI_Model {
         return $data_array;
     }
 
-    function getImgUser($numS=0,$numE=10)
+    function getImgUser($numS=0,$count=10,$lastImgid=0)
     {
         $this->load->database();
-        $query=$this->db->query("SELECT user.*,img.* FROM user,img WHERE img.imguid=user.uid ORDER BY img.imgid DESC LIMIT {$numS} , {$numE}");
-        $data_array=$query->result_array();
+        $this->db->select("*");
+        $this->db->from("img");
+        $this->db->join("user", "img.imguid = user.uid","inner");
+        if ($lastImgid > 0) {
+            $this->db->where("imgid <", $lastImgid);
+//            echo($lastImgid);
+        }
+        $this->db->order_by("img.imgid", "DESC");
+        $this->db->limit($count,$numS);
+        $query = $this->db->get();
+        $data_array = $query->result_array();
         return $data_array;
     }
 

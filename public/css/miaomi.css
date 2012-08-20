@@ -80,8 +80,9 @@ a:hover{text-decoration:none;color:#cc6724}
 .main .main-top .pic-num{margin:0 5px;font-weight: 700;}
 .main .main-top .icon-list{ float: left;width:20px;height:23px;margin-top:6px;margin-right:8px;background-image: url(../slice/icon-list.png);}
 
-.main .main-list{padding-top:10px;margin-left:-10px;}
-.main .item{ position: relative;width:222px;background-color: #fff;box-shadow:0 1px 2px rgba(0,0,0,.15);margin-bottom:10px;margin-left:10px;}
+.main .main-list{padding-top:10px;margin-left:-10px;zoom:1;}
+.main .main-list:after{content: " ";height:0;clear: both;display: block;}
+.main .item{ position: relative;width:222px;background-color: #fff;box-shadow:0 1px 2px rgba(0,0,0,.15);margin-bottom:10px;margin-left:10px;float:left;}
 .main .item:hover{}
 .main .item .item-inner{ position: relative;overflow:hidden;}
 .main .item .item-pic{padding:10px 10px 0 10px;}
