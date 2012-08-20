@@ -35,12 +35,15 @@ class Like extends CI_Model {
     }  
 
     // 获取喜欢某张图片的用户数据
-    public function getUserLike($imgid,$num=10)
+    public function getUserLike($imgid)
     {
-        $this->load->database();    
+        $this->load->database();
         $this->db->select('*');
         $this->db->from('imglike');
-        $this->db->where('likeimgid',$imgid);   
+        $this->db->where('imglike.likeimgid',$imgid);   
+        $this->db->order_by('likedate',"DESC");
+        $this->db->distinct();
+        $this->db->join('user','imglike.likeuid = user.uid');
         $query=$this->db->get();
         $data_array=$query->result_array();
         return ($data_array);
