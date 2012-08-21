@@ -29,8 +29,16 @@ class imglist extends CI_Controller {
     public function getImageListData()
     {
         $this->load->model("img","userUploadImg");
-        $imgdata['imglist']=$this->userUploadImg->getImgUser(0,50);
+        $imgdata['imglist']=$this->userUploadImg->getImgUser(0,15);
         return $imgdata;
+    }
+
+    // 得到图片信息的列表
+    public function getImageListDataApi($imgid)
+    {
+        $this->load->model("img","userUploadImg");
+        $imgdata['imglist']=$this->userUploadImg->getImgUser(0,50);
+        echo $imgdata;
     }
 
     public function getWhoLikeThisImg()
@@ -41,6 +49,15 @@ class imglist extends CI_Controller {
         echo json_encode($userListData);
 
     }
+
+    public function page($lastImgID)
+        {
+            $this->load->model("img","getMore");
+            $imgdata['imglist']=$this->getMore->getImgUser(0,15,$lastImgID);
+            $this->load->view("miaoHead",$this->getUserInfo());
+            $this->load->view("imgList",$imgdata);
+//            $this->load->view("miaoFoot");
+        }
 
       
 }

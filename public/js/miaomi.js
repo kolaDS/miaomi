@@ -93,7 +93,7 @@ var Miaomi={
 	M.initIconLike=function(){
 		$(".icon-like").click(function(){M.addLike($(this))});
 		
-	},
+	}
 	//弹出层方法 selector参数为关闭弹出层的元素，若为空，则默认点击空白处隐藏弹出层
 	M.initPop = function(selector){
 		var body = $('body'),
@@ -136,7 +136,7 @@ var Miaomi={
 				);
 			}
 
-	},
+	}
 	M.initPopImg=function(){
 		//图片点击事件
 		var pics = $('.J-miaoPic');
@@ -162,7 +162,7 @@ var Miaomi={
 
 			})
 		});
-	},
+	}
 
 	//获取鼠标点击图片的信息
 	M.getImgInfo=function(El){
@@ -177,7 +177,7 @@ var Miaomi={
 			imgdate:El.attr("imgdate")
 		}
 		return obj;
-	},
+	}
 	// 通过传入一个obj信息，把图片展示出来
 	M.popImg=function(obj){
 		var popImg_HTML="\
@@ -232,7 +232,7 @@ var Miaomi={
 		</div>\
 	</div>";	
 	this.pop(popImg_HTML);
-	},
+	}
 	// 得到评论并且插入评论
 	M.popCommenList=function(obj){
 		$.post(
@@ -284,7 +284,7 @@ var Miaomi={
 		    	M.uploadComment(comm_imgid,comm_text);
 		    });
 		});
-	},
+	}
 	//输入框和占位文字 label + input 结构  label标签带有 J-holder 类名即可
 	M.initInput = function(){
 		var inputText = $("label + input");
@@ -298,7 +298,7 @@ var Miaomi={
 				});
 			}
 		})
-	},
+	}
 	//上传文件
 	M.upLoadFile = function(){
 		var btnUpload = $("#btnUpload"),
@@ -311,26 +311,11 @@ var Miaomi={
 			btnUploadWrap.addClass("hide");
 			userDescWrap.show();
 		});
-		formUpload.submit(
-
-		)
 
 	}
 	M.upLoadFile.callback = function(o){
 		alert(o);
-//		var t,imgInfo;
-//		function uploadCallBack(){
-//			if(document.body.innerHTML!=""){
-//				imgInfo = document.body.innerHTML;
-//				clearTimeout(t);
-//			}
-//			t = setTimeout("uploadCallBack()",500);
-//		}
-//		uploadCallBack();
-//		//将数据添加到主框架
-//		var div = document.createElement("DIV");
-//		window.parent.document.body.appendChild(div);
-//		div.innerHTML = imgInfo;
+
 	};
 
 })(jQuery,Miaomi);
