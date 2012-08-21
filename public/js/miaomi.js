@@ -94,41 +94,55 @@ var Miaomi={
 		$(".icon-like").click(function(){M.addLike($(this))});
 		
 	},
-	// TODO 须重写
-	M.initPopImg=function(){
-		//图片点击事件
+	//弹出层方法 selector参数为关闭弹出层的元素，若为空，则默认点击空白处隐藏弹出层
+	M.initPop = function(selector){
 		var body = $('body'),
 			html = $('html'),
-			pics = $('.J-miaoPic'),
-			picPreviewed = 0,
-			picPreviewContainer = $('#zoomPreview'),
-			previewInner=$("#innerPreview"),
-			picPreviewMod = "";
-
-		//显示大图弹出层
-		function picPreviewShow(){
-			var sTop = html.scrollTop();
-			html.addClass('noscroll');
-			html.scrollTop(sTop);
-			if(!picPreviewed){
-				 picPreviewContainer.addClass('zoom-show');
-				 // picPreviewContainer.addClass('zoom-show').append(picPreviewMod);
-				picPreviewed = 1;
+			sTop = html.scrollTop(),
+			popPreviewed = 0,
+			popPreviewContainer = $('#zoomPreview'),
+			popInner=$("#innerPreview"),
+			popShow = function(){
+				html.scrollTop(sTop);
+				html.addClass('noscroll');
+				if(!popPreviewed){
+					 popPreviewContainer.addClass('zoom-show');
+					popPreviewed = 1;
+				}
+			},
+			popHide = function(){
+				popPreviewContainer.removeClass('zoom-show');
+				popInner.empty();
+				html.removeClass('noscroll');
+				popPreviewed = 0;
+			}
+				//弹出层显示
+			popShow();
+				//弹出层消失
+			if(selector){
+				selector.click(function(){
+					popHide();
+				})
+			}
+			else{
+				popPreviewContainer.click(
+					function(e){
+							var $target = $(e.target);
+							e.stopPropagation();
+							if($target.is(popPreviewContainer)){
+								popHide();
+						}
+				}
+				);
 			}
 
-		}
+	},
+	M.initPopImg=function(){
+		//图片点击事件
+		var pics = $('.J-miaoPic');
 
-		picPreviewContainer.live('click',function(e){
-				e.stopPropagation();
-				var $target = $(e.target);
-				if($target.is(picPreviewContainer)){
-					picPreviewContainer.removeClass('zoom-show');
-					previewInner.empty();
-					html.removeClass('noscroll');
-					picPreviewed = 0;
-			}
-		});
 
+		//图片点击之后显示数据
 		pics.each(function(){
 			var $pic = $(this);
 			$pic.live('click',function(){
@@ -143,11 +157,12 @@ var Miaomi={
 
 				// 加载谁也喜欢
 				M.getWhoLikeThisImg("#list-who-like",data.imgid);
-				var sTop = html.scrollTop();
-				picPreviewShow();
+
+				M.initPop();
+
 			})
 		});
-	};
+	},
 
 	//获取鼠标点击图片的信息
 	M.getImgInfo=function(El){
@@ -162,7 +177,7 @@ var Miaomi={
 			imgdate:El.attr("imgdate")
 		}
 		return obj;
-	};
+	},
 	// 通过传入一个obj信息，把图片展示出来
 	M.popImg=function(obj){
 		var popImg_HTML="\
@@ -217,7 +232,7 @@ var Miaomi={
 		</div>\
 	</div>";	
 	this.pop(popImg_HTML);
-	};
+	},
 	// 得到评论并且插入评论
 	M.popCommenList=function(obj){
 		$.post(
@@ -256,7 +271,7 @@ var Miaomi={
 						<textarea id='' class='report-textarea'></textarea>\
 					</div>\
 				<div class='report-op-wrapper'>\
-					<a href='#' class='btn-submit'>提交</a>\
+					<a href='#' class='btn-M btn-submit'>提交</a>\
 				</div>\
 			</div>\
 		    </div>";
@@ -269,6 +284,53 @@ var Miaomi={
 		    	M.uploadComment(comm_imgid,comm_text);
 		    });
 		});
+	},
+	//输入框和占位文字 label + input 结构  label标签带有 J-holder 类名即可
+	M.initInput = function(){
+		var inputText = $("label + input");
+		inputText.each(function(){
+			var $this = $(this),
+				thisInputHolder = $this.prev();
+			if(thisInputHolder.hasClass("J-holder")){
+				$this.focus(function(){thisInputHolder.hide()});
+				$this.blur(function(){
+					if($this.val()==""){thisInputHolder.show()}
+				});
+			}
+		})
+	},
+	//上传文件
+	M.upLoadFile = function(){
+		var btnUpload = $("#btnUpload"),
+			btnUploadWrap = $("#btnUploadWrap"),
+			formUpload = $("#formUpload"),
+			userDescWrap = $("#userDescWrap");
+
+		btnUpload.change(function(){
+			//需添加一个文件格式判断
+			btnUploadWrap.addClass("hide");
+			userDescWrap.show();
+		});
+		formUpload.submit(
+
+		)
+
+	}
+	M.upLoadFile.callback = function(o){
+		alert(o);
+//		var t,imgInfo;
+//		function uploadCallBack(){
+//			if(document.body.innerHTML!=""){
+//				imgInfo = document.body.innerHTML;
+//				clearTimeout(t);
+//			}
+//			t = setTimeout("uploadCallBack()",500);
+//		}
+//		uploadCallBack();
+//		//将数据添加到主框架
+//		var div = document.createElement("DIV");
+//		window.parent.document.body.appendChild(div);
+//		div.innerHTML = imgInfo;
 	};
 
 })(jQuery,Miaomi);
@@ -278,4 +340,7 @@ var Miaomi={
 	M.init();
 	M.initIconLike();
 	M.initPopImg();
+	M.initInput();
+	M.upLoadFile();
 })(jQuery,Miaomi);
+

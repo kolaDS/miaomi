@@ -30,21 +30,23 @@
 				</div>
 				<div class="header-info">
 					<?php if(isset($uid)): ?>
-					<div class="head-user" id="head-user" uid="<?php echo $uid ?>" uname="<?php echo $uname?>" uurl="<?php echo $uurl?>" uavatar="<?php echo $uavatar ;?>"  style="height:50px;line-height:50px;position:absolute;right:160px;top:0;text-align:right;">
-						<a  href="#" style="vertical-align:middle;"><img src="<?php echo $uavatar ;?>" style="display:inline-block;;width:20px;height:20px;"></a> <span><?php echo $uname; ?>！</span>
+					<div class="head-user" id="head-user" uid="<?php echo $uid ?>" uname="<?php echo $uname?>" uurl="<?php echo $uurl?>" uavatar="<?php echo $uavatar ;?>"  >
+						<a  href="#" class="user-avatar"><img src="<?php echo $uavatar ;?>" ></a> <span><?php echo $uname; ?>！</span>
+					</div>
+					<div class="fn_uploadcat">
+						<form action="uploadcat/do_upload" target="unvisibleiframe" method="post" accept-charset="utf-8" enctype="multipart/form-data" id="formUpload">
+
+							<span class="btn-upload" id="btnUploadWrap"><b>上传喵图</b><input type="file" class="file-upload" name="userfile" size="3" id="btnUpload" title="支持jpg、jpeg、gif、png格式，文件小于4M"></span>
+							<div class="user-desc" id="userDescWrap"><label for="imgText" class="holder-txt J-holder">喵~描述一下呗~</label><input type="text" id="imgText" name="imgtext" >
+							<input type="submit" value="upload" class="btn-M btn-toupload" id="btnUpload"></div>
+						</form>
+						<iframe src="" name="unvisibleiframe" id="iframeUpload" style="visibily:hidden;width:0;height:0;position:absolute;left:-999px;top:-999px"></iframe>
 					</div>
 					<?php else: ?>
-					<div class="head-user" style="height:50px;line-height:50px;position:absolute;right:160px;top:0;text-align:right;"><a href="/miaomi/login">请登陆哦～</a></div>
+					<div class="head-user"><a href="/miaomi/login">喵~登陆之后可以上传图片噢~O(∩_∩)O~</a></div>
 					<?php endif;?>
 
-					<div class="pop_uploadcat">
-						<form action="uploadcat/do_upload" target="unvisibleiframe" method="post" accept-charset="utf-8" enctype="multipart/form-data">
-							description<input type="text" name="imgtext">
-							<a href="#" class="btn-upload txt-hidden">上传喵图<input type="file" class="file-upload" name="userfile" size="3"></a>
-							<input type="submit" value="upload">
-						</form>
-						<iframe src="" name="unvisibleiframe" style="visibily:hidden;width:0;height:0;position:absolute;left:-999px;top:-999px"></iframe>
-					</div>
+
 				</div>
 			</div>
 		</div>
