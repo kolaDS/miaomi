@@ -9,6 +9,19 @@ var Miaomi={
 	log:function(i){
 		console.log(i);
 	},
+    //瀑布流方法
+    initMasonry:function(){
+        var $container = $('#mainList');
+        $container.imagesLoaded(function () {//imagesloaded 方法导致ie8，ie7下瀑布流不生效
+                    $container.masonry({
+                        itemSelector:'.item'
+                    });
+        })
+    },
+    //瀑布流滚动
+    scrollList:function(){
+
+    },
 	// 插入浮层方法
 	pop:function(htmlString){
 		this.$innerPreview.append(htmlString);
@@ -323,7 +336,8 @@ var Miaomi={
 
 (function($,M){
 	M.init();
-	M.initIconLike();
+    M.initMasonry();
+    M.initIconLike();
 	M.initPopImg();
 	M.initInput();
 	M.upLoadFile();
