@@ -36,7 +36,6 @@ class Img extends CI_Model {
         $this->db->join("user", "img.imguid = user.uid","inner");
         if ($lastImgid > 0) {
             $this->db->where("imgid <", $lastImgid);
-//            echo($lastImgid);
         }
         $this->db->order_by("img.imgid", "DESC");
         $this->db->limit($count,$numS);
