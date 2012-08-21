@@ -92,10 +92,9 @@ var Miaomi={
 				var list_HTML="";
 				if(list.length) for(var index in list)
 				{
-					list_HTML+= "<li><a uid='"+list[index].uid+"' href='#'><img src='"+list[index].uavatar+"' alt=''></a></li>";					
+					list_HTML+= "<li><a uid='"+list[index].uid+"' href='#'><img src='"+list[index].uavatar+"' alt=''></a></li>";
 				}
 				else list_HTML+="<li>矮油，还没有人喜欢哦～</li>";
-
 				$(selector).append(list_HTML).removeClass('loading');
 			})
 	}
