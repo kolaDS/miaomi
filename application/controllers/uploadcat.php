@@ -21,6 +21,8 @@ class uploadcat extends CI_Controller {
     {
         session_start();
         date_default_timezone_set('UTC');
+        $suffix = '<scr'.'ipt>parent.M.upload.callback(';
+        $ss2 = ');</script>';
         //Todo hard code
         if(isset($_SESSION['user']))
         {
@@ -44,7 +46,7 @@ class uploadcat extends CI_Controller {
             {
                 $error = array('error' => $this->upload->display_errors('',''));
                 $error_code=$this->encodeError($error);
-                echo json_encode($error_code);
+                echo $suffix.json_encode($error_code).$ss2;
             }
             else
             {
@@ -53,7 +55,7 @@ class uploadcat extends CI_Controller {
                 $data=array('imgtext'=> $imgtext,'imguid'=>$imguid,'imgcatid'=>$imgcatid,'imgname'=>$imgname);
                 $this->load->model('img');                
                 $this->img->insertImg($data);
-                echo json_encode($formdata);
+                echo $suffix.json_encode($formdata).$ss2;
             }
         }
 
