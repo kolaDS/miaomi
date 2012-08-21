@@ -314,7 +314,7 @@ var Miaomi={
 
 	}
 	M.upLoadFile.callback = function(o){
-		alert(o);
+		console.log(o);
 
 	};
 
