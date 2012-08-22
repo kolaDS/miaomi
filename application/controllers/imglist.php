@@ -12,8 +12,11 @@ class imglist extends CI_Controller {
     {   
         $this->load->view("miaoHead",$this->getUserInfo());
         $this->load->view("imgList",$this->getImageListData());
-        $this->load->view("miaoFoot");     
-       
+        $this->load->view("miaoFoot");
+        $this->load->view("jsTemp");
+        $this->load->view("miaoFootJs");
+
+
     }
 
 

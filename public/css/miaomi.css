@@ -94,10 +94,19 @@ input[type="text"]:focus{border-color:#e0cd96;outline:none;}
 .main .main-top .icon-list{ float: left;width:20px;height:23px;margin-top:6px;margin-right:8px;background-image: url(../slice/icon-list.png);}
 
 .main .main-list{padding-top:10px;margin-left:-10px;}
-.main .item{ position: relative;width:222px;background-color: #fff;box-shadow:0 1px 2px rgba(0,0,0,.15);margin-bottom:10px;margin-left:10px;}
+.main .item{ position: relative;width:222px;background-color: #fff;box-shadow:0 1px 2px rgba(0,0,0,.15);margin-bottom:10px;margin-left:10px;
+	-webkit-transition-property: left, right, top;
+	-moz-transition-property: left, right, top;
+	-ms-transition-property: left, right, top;
+	transition-property: left, right, top;
+	-webkit-transition-duration: .7s;
+	-moz-transition-duration: .7s;
+	-ms-transition-duration: .7s;
+	transition-duration: .7s;
+}
 .main .item:before{content:"////////////////////////";display:block;background-color:#F2EFEB;color:#fff;height:4px;line-height:4px;box-shadow:0 1px 1px rgba(0,0,0,.1);font-size:40px;font-family:arial;overflow:hidden;}
 .main .item .item-inner{ position: relative;overflow:hidden;}
-.main .item .item-pic{padding:10px 10px 0 10px;}
+.main .item .item-pic{padding:10px 10px 0 10px;overflow:hidden;}
 .main .item .item-pic img{ vertical-align: top;width:202px;cursor:pointer;opacity:.9;-moz-transition:opacity .4s;-webkit-transition:opacity .4s;transition:opacity .4s;}
 .main .item .item-pic img:hover{opacity:1;}
 .main .item .item-info{line-height:22px;padding:5px 10px;}

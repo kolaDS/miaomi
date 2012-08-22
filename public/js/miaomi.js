@@ -1,4 +1,5 @@
-//关闭弹出层
+
+
 
 var Miaomi={
 	init:function(){
@@ -312,6 +313,7 @@ var Miaomi={
 			}
 		})
 	}
+
 	//上传文件
 	M.upLoadFile = function(){
 		var btnUpload = $("#btnUpload"),
@@ -324,16 +326,60 @@ var Miaomi={
 			btnUploadWrap.addClass("hide");
 			userDescWrap.show();
 		});
-
 	}
 	M.upLoadFile.callback = function(o){
-		//上传成功返回状态
+//		console.log(o);
+		//成功上传之后的返回值
+		var imgId = o.imgcatid,
+			imgName = o.imgdata.upload_data.raw_name,
+			uName = o.imgdata.upload_data.raw_name,
+			imgOrigHeight = o.imgdata.upload_data.image_height,
+			imgOrigWidth = o.imgdata.upload_data.image_width,
+			imgViewHeight = Math.round(202*imgOrigHeight/imgOrigWidth)+"px";
+		//插入瀑布流中 先给图片容器添加高度
+		$('#mainList').prepend(M.tmpl(newItemHtml, {
+			imgid: '1',
+			imgname: imgName,
+			imglike: '223',
+			uid:  '1',
+			uname:  '1',
+			uurl:  '1',
+			uavatar:  '1',
+			imgtext:  '1',
+			imgdate:  '1',
+			imgviewheight:imgViewHeight
 
+		})).masonry( 'reload' );
 
+		var btnUpload = $("#btnUpload"),
+			btnUploadWrap = $("#btnUploadWrap"),
+			userDescWrap = $("#userDescWrap");
+		btnUpload.val("");
+		btnUploadWrap.removeClass("hide");
+		userDescWrap.hide();
+	}
+	//js猫版引擎方法
+	M.tmpl = function tmpl(str, data){
+		var cache = {},
+	   		fn = !/\W/.test(str) ?
+	    cache[str] = cache[str] ||
+	      tmpl(document.getElementById(str).innerHTML) :
+	    new Function("obj",
+	      "var p=[],print=function(){p.push.apply(p,arguments);};" +
+	      "with(obj){p.push('" +
+	      str
+	        .replace(/[\r\t\n]/g, " ")
+	        .split("<%").join("\t")
+	        .replace(/((^|%>)[^\t]*)'/g, "$1\r")
+	        .replace(/\t=(.*?)%>/g, "',$1,'")
+	        .split("\t").join("');")
+	        .split("%>").join("p.push('")
+	        .split("\r").join("\\'")
+	    + "');}return p.join('');");
+	  return data ? fn( data ) : fn;
 	};
 
 })(jQuery,Miaomi);
-
 
 (function($,M){
 	M.init();
@@ -344,26 +390,3 @@ var Miaomi={
 	M.upLoadFile();
 })(jQuery,Miaomi);
 
-<div class="item" imgid="<?php echo($item['imgid']);?>">
-		<div class="item-inner">
-			<div class="item-pic">
-				<img src="/miaomi/public/uploads/<?php echo($item['imgname']);?>.jpg" class="J-miaoPic" imgid="<?php echo($item['imgid']);?>" uid="<?php echo($item['uid']); ?>" uname="<?php echo($item['uname']);?>" uurl="<?php echo($item['uurl'])?>" uavatar="<?php echo($item['uavatar']);?>" imgtext="<?php echo($item['imgtext']); ?>" imgdate="<?php echo($item['imgdate']);?>" />
-			</div>
-			<div class="item-info">
-				<p class="item-describe-txt"><?php echo($item['imgtext']);?></p>
-				<p class="item-info-num"><span class="num-like"><span class="num-like-detail" imgid="<?php echo($item['imgid']);?>"><?php echo($item['imglike']);?></span>喜欢</span><span class="num-share">2分享</span></p>
-			</div>
-			<div class="item-describe">
-					<a target="_blank" class="avatar-wrap" href="http://weibo.com/<?php echo($item['uurl']);?>"><img class="avatar" src="<?php echo($item['uavatar']); ?>"/></a>
-
-					<p class="item-upload-info">上传于 <?php echo($item['imgdate']);?></p>
-                <p><?php echo($item['imgid']);?></p>
-			</div>
-			<div class="item-op">
-				<a href="javascript:void(0);" class="ui-icon icon-like"  imgid="<?php echo($item['imgid']);?>">喜欢</a>
-				<a href="javascript:void(0);" class="ui-icon icon-share">分享</a>
-			</div>
-		</div>
-
-		<div class="item-sd"></div>
-	</div>
