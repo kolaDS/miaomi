@@ -21,8 +21,11 @@ class uploadcat extends CI_Controller {
     {
         session_start();
         date_default_timezone_set('UTC');
-        $suffix = '<scr'.'ipt>parent.Miaomi.upLoadFile.callback(';
-        $ss2 = ');</script>';
+        // $suffix = '<scr'.'ipt>parent.Miaomi.upLoadFile.callback(';
+        $suffix = '';
+        
+        // $ss2 = ');</script>';
+        $ss2 = '';
         //Todo hard code
         if(isset($_SESSION['user']))
         {
@@ -50,12 +53,13 @@ class uploadcat extends CI_Controller {
             }
             else
             {
-                $imgdata = array('upload_data' => $this->upload->data());
-                $formdata=array('imgusrid'=>$imguid,'imgcatid'=>$imgcatid,'imgtext'=>$imgtext,'imgdata'=>$imgdata);
+                
+                $formdata=array('imgusrid'=>$imguid,'imgcatid'=>$imgcatid,'imgtext'=>$imgtext,'imgname'=>$imgname,'imgdata'=>$this->upload->data());
                 $data=array('imgtext'=> $imgtext,'imguid'=>$imguid,'imgcatid'=>$imgcatid,'imgname'=>$imgname);
                 $this->load->model('img');                
-                $this->img->insertImg($data);
-                echo $suffix.json_encode($formdata).$ss2;
+                $imgidInDatabase=$this->img->insertImg($data);
+                $data['imgid']=$imgidInDatabase;                
+                echo $suffix.json_encode($data).$ss2;
             }
         }
 
