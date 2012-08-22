@@ -28,7 +28,7 @@ class Img extends CI_Model {
         return $data_array;
     }
 
-    function getImgUser($numS=0,$count=10,$lastImgid=0)
+    function getImgUser($numS=0,$count=1,$lastImgid=0)
     {
         $this->load->database();
         $this->db->select("*");

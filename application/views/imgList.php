@@ -14,8 +14,7 @@
 			<div class="item-describe">
 					<a target="_blank" class="avatar-wrap" href="http://weibo.com/<?php echo($item['uurl']);?>"><img class="avatar" src="<?php echo($item['uavatar']); ?>"/></a>
 
-					<p class="item-upload-info">上传于 <?php echo($item['imgdate']);?></p>
-                <p><?php echo($item['imgid']);?></p>
+					<p class="item-upload-info">上传于 <?php echo($item['imgdate']);?></p>                
 			</div>
 			<div class="item-op">
 				<a href="javascript:void(0);" class="ui-icon icon-like"  imgid="<?php echo($item['imgid']);?>">喜欢</a>
@@ -30,4 +29,4 @@
 <div id="page-nav" style=""><a href="/miaomi/imglist/page/20"></a></div>
     
 <!-- 图片列表 -->
-<div class="loading-tips-bar"><p class="loading-txt">喵~没有更多了~</p></div>
+<div class="loading-tips-bar"><p class="loading-txt none">喵~没有更多了~</p></div>

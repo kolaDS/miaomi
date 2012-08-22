@@ -12,6 +12,7 @@
 /* body */
 /*body{ background-image: url(../image/bg-body.png); background-color: #ece8e3;color:#978980;}*/
 body{  background-color: #BFE3E1;background-image: url(../image/bg-body.jpg);color:#978980;}
+.none{display: none;}
 .noscroll{padding-right:17px;overflow: hidden !important;}
 .noscroll .header{left:-8px;}
 .wrapper{ position: relative;margin:0 auto;padding:0 15px;width:970px;}

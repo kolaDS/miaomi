@@ -18,7 +18,7 @@
 	<script type="text/javascript" src="/miaomi/public/js/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="/miaomi/public/js/jquery.imgareaselect.pack.js"></script>
 	<script type="text/javascript" src="/miaomi/public/js/jquery.masonry.min.js"></script>
-	<script type="text/javascript" src="/miaomi/public/js/jquery.infinitescroll.min.js"></script>
+	<script type="text/javascript" src="/miaomi/public/js/jquery.infinitescroll.js"></script>
 	<script type="text/javascript" src="/miaomi/public/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/miaomi/public/js/jquery.mousewheel.min.js"></script>
 	<script type="text/javascript" src="/miaomi/public/js/miaomi.js"></script>
@@ -73,9 +73,11 @@
 
         $(function () {
 
-            var $container = $('#mainList');
+            var $container = $('#mainList');     
             var lastimgid=$(".item").last().attr("imgid");
-            $("#page-nav a").attr("href","/miaomi/imglist/page/"+lastimgid);
+                        
+                        $("#page-nav a").attr("href","/miaomi/imglist/page/"+lastimgid);       
+            
             $container.infinitescroll({
                     navSelector:'#page-nav', // selector for the paged navigation
                     nextSelector:'#page-nav a', // selector for the NEXT link (to page 2)
@@ -83,7 +85,9 @@
                     loading:{
                         finishedMsg:'No more pages to load.',
                         img:'http://i.imgur.com/6RMhx.gif'
-                    }
+                    },                    
+                    bufferPx:0,
+                    errorCallback: function(){$(".loading-txt").fadeIn(300)}
                 },
                 // trigger Masonry as a callback
                 function (newElements) {
@@ -95,7 +99,7 @@
                         // show elems now they're ready
                         $newElems.animate({ opacity:1 });
                         $container.masonry('appended', $newElems, true);
-                        var lastimgid=$(".item").last().attr("imgid");
+                        var lastimgid=$(".item").last().attr("imgid");                        
                         $("#page-nav a").attr("href","/miaomi/imglist/page/"+lastimgid);
                     });
                 }
