@@ -103,8 +103,9 @@ input[type="text"]:focus{border-color:#e0cd96;outline:none;}
 .main .main-top .pic-num{margin:0 5px;font-weight: 700;}
 .main .main-top .icon-list{ float: left;width:20px;height:23px;margin-top:6px;margin-right:8px;background-image: url(../slice/icon-list.png);}
 
-.main .main-list{padding-top:10px;margin-left:-10px;}
-.main .item{ position: relative;width:222px;background-color: #fff;box-shadow:0 1px 2px rgba(0,0,0,.15);margin-bottom:10px;margin-left:10px;}
+.main .main-list{padding-top:10px;margin-left:-10px;zoom:1;}
+.main .main-list:after{content: ".";height: 0;display: block;overflow: hidden;clear: both;}
+.main .item{ position: relative;width:222px;background-color: #fff;box-shadow:0 1px 2px rgba(0,0,0,.15);margin-bottom:10px;margin-left:10px;float:left;}
 .main .item:before{content:"////////////////////////";display:block;background-color:#F2EFEB;color:#fff;height:4px;line-height:4px;box-shadow:0 1px 1px rgba(0,0,0,.1);font-size:40px;font-family:arial;overflow:hidden;}
 .main .item .item-inner{ position: relative;overflow:hidden;}
 .main .item .item-pic{padding:10px 10px 0 10px;}
@@ -136,7 +137,7 @@ input[type="text"]:focus{border-color:#e0cd96;outline:none;}
 .loading-txt{font-size:14px;text-align:center;height:100px;line-height:100px;text-shadow:0 1px 0 rgba(255,255,255,.8)}
 
 /* 底部 */
-.footer{height:42px;line-height:48px; text-align:center;background-image: url(../image/bg-bottom.png);overflow:hidden;}
+.footer{height:42px;line-height:48px; text-align:center;background-image: url(../image/bg-bottom.png);overflow:hidden;clear: both;}
 
 /* 弹出层 */
 .pop-wrapper{margin:0 auto;background-color: #fff; background-image: url(../image/bg-pop.png);box-shadow:0 1px 3px rgba(0,0,0,.3)}

@@ -217,7 +217,8 @@
                     opts.state.isInvalidPage = true;  //prevent it from running on this page.
                 }
             }
-            this._debug('determinePath', path);
+//            this._debug('so determinePath', path);
+            console.log(path);
             return path;
 
         },

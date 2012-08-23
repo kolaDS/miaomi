@@ -87,6 +87,7 @@
                         img:'http://i.imgur.com/6RMhx.gif'
                     },                    
                     bufferPx:0,
+                    debug:"true",
                     errorCallback: function(){$(".loading-txt").fadeIn(300)}
                 },
                 // trigger Masonry as a callback
