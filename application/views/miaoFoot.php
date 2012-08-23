@@ -21,6 +21,7 @@
 	<script type="text/javascript" src="/miaomi/public/js/jquery.infinitescroll.js"></script>
 	<script type="text/javascript" src="/miaomi/public/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/miaomi/public/js/jquery.mousewheel.min.js"></script>
+	<script type="text/javascript" src="/miaomi/public/js/jsTemp.js"></script>
 	<script type="text/javascript" src="/miaomi/public/js/miaomi.js"></script>
 	<script type="text/javascript">
 	$(function(){
@@ -32,7 +33,8 @@
 
 			$container.imagesLoaded( function(){//imagesloaded 方法导致ie8，ie7下瀑布流不生效
 			  $container.masonry({
-			    itemSelector : '.item'
+			    itemSelector : '.item',
+			    isAnimated: !Modernizr.csstransitions
 			  });
 			  // 给图片加点击弹出层事件
 			  $(".source_img").live("click",function(){

@@ -14,7 +14,7 @@
 			<div class="item-describe">
 					<a target="_blank" class="avatar-wrap" href="http://weibo.com/<?php echo($item['uurl']);?>"><img class="avatar" src="<?php echo($item['uavatar']); ?>"/></a>
 
-					<p class="item-upload-info">上传于 <?php echo($item['imgdate']);?></p>                
+					<p class="item-upload-info"><?php echo($item['imgdate']);?> 上传</p>
 			</div>
 			<div class="item-op">
 				<a href="javascript:void(0);" class="ui-icon icon-like"  imgid="<?php echo($item['imgid']);?>">喜欢</a>

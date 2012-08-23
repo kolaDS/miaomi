@@ -338,37 +338,41 @@ var Miaomi={
 		});
 	}
 	M.upLoadFile.callback = function(o){
-//		console.log(o);
+	console.log(o);
 		//成功上传之后的返回值
-		var imgId = o.imgcatid,
-			imgName = o.imgdata.upload_data.raw_name,
-			uName = o.imgdata.upload_data.raw_name,
-			imgOrigHeight = o.imgdata.upload_data.image_height,
-			imgOrigWidth = o.imgdata.upload_data.image_width,
+		var imgId = o.imgid,
+			imgName = o.imgname,
+			imgText = o.imgtext,
+				//添加用户信息
+			uName = M.currentUser.uname,
+			uUrl = M.currentUser.uurl,
+			uId = M.currentUser.uid,
+			uAvatar = M.currentUser.uavatar,
 			$newItem = $(M.tmpl(newItemHtml, {
-							imgid: '1',
+							imgid: imgId,
 							imgname: imgName,
 							imglike: '223',
-							uid:  '1',
-							uname:  '1',
-							uurl:  '1',
-							uavatar:  '1',
-							imgtext:  '1',
-							imgdate:  '1'
+							uid:  uId,
+							uname:  uName,
+							uurl:  uUrl,
+							uavatar:  uAvatar,
+							imgtext:  imgText,
+							imgdate:  '刚刚'
 						})).css({opacity:0});
+
+			//图片加载完后插入
 			$newItem.imagesLoaded(function(){
 				$newItem.animate({opacity:1});
 				$('#mainList').prepend($newItem).masonry('reload');
 			})
 
-//		$('#mainList').prepend().masonry( 'reload' );
 
 		var btnUpload = $("#btnUpload"),
 			btnUploadWrap = $("#btnUploadWrap"),
 			userDescWrap = $("#userDescWrap"),
-			imgText = $("#imgText");
+			imgTextInput = $("#imgText");
 		btnUpload.val("");
-		imgText.val("");
+		imgTextInput.val("");
 		btnUploadWrap.removeClass("hide");
 		userDescWrap.hide();
 	}

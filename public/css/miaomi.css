@@ -95,16 +95,7 @@ input[type="text"]:focus{border-color:#e0cd96;outline:none;}
 .main .main-top .icon-list{ float: left;width:20px;height:23px;margin-top:6px;margin-right:8px;background-image: url(../slice/icon-list.png);}
 
 .main .main-list{padding-top:10px;margin-left:-10px;}
-.main .item{ position: relative;width:222px;background-color: #fff;box-shadow:0 1px 2px rgba(0,0,0,.15);margin-bottom:10px;margin-left:10px;
-	-webkit-transition-property: left, right, top;
-	-moz-transition-property: left, right, top;
-	-ms-transition-property: left, right, top;
-	transition-property: left, right, top;
-	-webkit-transition-duration: .7s;
-	-moz-transition-duration: .7s;
-	-ms-transition-duration: .7s;
-	transition-duration: .7s;
-}
+.main .item{ position: relative;width:222px;background-color: #fff;box-shadow:0 1px 2px rgba(0,0,0,.15);margin-bottom:10px;margin-left:10px;}
 .main .item:before{content:"////////////////////////";display:block;background-color:#F2EFEB;color:#fff;height:4px;line-height:4px;box-shadow:0 1px 1px rgba(0,0,0,.1);font-size:40px;font-family:arial;overflow:hidden;}
 .main .item .item-inner{ position: relative;overflow:hidden;}
 .main .item .item-pic{padding:10px 10px 0 10px;overflow:hidden;}
@@ -124,6 +115,30 @@ input[type="text"]:focus{border-color:#e0cd96;outline:none;}
 .main .item:hover .item-op{opacity:1;top:15px;-moz-transition:.2s;-webkit-transition:.2s;transition:.2s;}
 .item-op .ui-icon{ float: left;width:32px;height:32px;margin-left:5px;}
 
+/*瀑布流的transition*/
+.masonry,
+.masonry .masonry-brick {
+  -webkit-transition-duration: 0.7s;
+     -moz-transition-duration: 0.7s;
+      -ms-transition-duration: 0.7s;
+          transition-duration: 0.7s;
+}
+
+.masonry {
+  -webkit-transition-property: height, width;
+     -moz-transition-property: height, width;
+      -ms-transition-property: height, width;
+          transition-property: height, width;
+}
+
+.masonry .masonry-brick {
+  -webkit-transition-property: left, right, top;
+     -moz-transition-property: left, right, top;
+      -ms-transition-property: left, right, top;
+          transition-property: left, right, top;
+}
+
+/* 操作icon */
 .icon-like{ background-image: url(../slice/icon-like.png);}
 .icon-like:hover{background-image: url(../slice/icon-like-hover.png);}
 .icon-share{ background-image: url(../slice/icon-share.png);}
@@ -207,5 +222,5 @@ input[type="text"]:focus{border-color:#e0cd96;outline:none;}
 
 	.header-inner{height:120px; background-position:0 bottom;}
 	.header-inner .header-bar .tab-nav{margin-top:70px;margin-left:10px;}
-	.header-inner .header-bar .header-info{margin-top:70px;}
+	.header-inner .header-bar .header-info{margin-top:10px;}
 }
