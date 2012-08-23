@@ -1,4 +1,5 @@
-//关闭弹出层
+
+
 
 var Miaomi={
 	init:function(){
@@ -322,6 +323,7 @@ var Miaomi={
 			}
 		})
 	}
+
 	//上传文件
 	M.upLoadFile = function(){
 		var btnUpload = $("#btnUpload"),
@@ -334,15 +336,68 @@ var Miaomi={
 			btnUploadWrap.addClass("hide");
 			userDescWrap.show();
 		});
-
 	}
 	M.upLoadFile.callback = function(o){
-		console.log(o);
+	console.log(o);
+		//成功上传之后的返回值
+		var imgId = o.imgid,
+			imgName = o.imgname,
+			imgText = o.imgtext,
+				//添加用户信息
+			uName = M.currentUser.uname,
+			uUrl = M.currentUser.uurl,
+			uId = M.currentUser.uid,
+			uAvatar = M.currentUser.uavatar,
+			$newItem = $(M.tmpl(newItemHtml, {
+							imgid: imgId,
+							imgname: imgName,
+							imglike: '223',
+							uid:  uId,
+							uname:  uName,
+							uurl:  uUrl,
+							uavatar:  uAvatar,
+							imgtext:  imgText,
+							imgdate:  '刚刚'
+						})).css({opacity:0});
 
+			//图片加载完后插入
+			$newItem.imagesLoaded(function(){
+				$newItem.animate({opacity:1});
+				$('#mainList').prepend($newItem).masonry('reload');
+			})
+
+
+		var btnUpload = $("#btnUpload"),
+			btnUploadWrap = $("#btnUploadWrap"),
+			userDescWrap = $("#userDescWrap"),
+			imgTextInput = $("#imgText");
+		btnUpload.val("");
+		imgTextInput.val("");
+		btnUploadWrap.removeClass("hide");
+		userDescWrap.hide();
+	}
+	//js猫版引擎方法
+	M.tmpl = function tmpl(str, data){
+		var cache = {},
+	   		fn = !/\W/.test(str) ?
+	    cache[str] = cache[str] ||
+	      tmpl(document.getElementById(str).innerHTML) :
+	    new Function("obj",
+	      "var p=[],print=function(){p.push.apply(p,arguments);};" +
+	      "with(obj){p.push('" +
+	      str
+	        .replace(/[\r\t\n]/g, " ")
+	        .split("<%").join("\t")
+	        .replace(/((^|%>)[^\t]*)'/g, "$1\r")
+	        .replace(/\t=(.*?)%>/g, "',$1,'")
+	        .split("\t").join("');")
+	        .split("%>").join("p.push('")
+	        .split("\r").join("\\'")
+	    + "');}return p.join('');");
+	  return data ? fn( data ) : fn;
 	};
 
 })(jQuery,Miaomi);
-
 
 (function($,M){
 	M.init();

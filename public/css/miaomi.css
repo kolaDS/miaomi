@@ -22,21 +22,9 @@ a:hover{text-decoration:none;color:#cc6724}
 .txt-em{color:#cc6724;}
 .avatar{border-radius:3px;}
 .ui-icon{ display: inline-block;line-height:100px;overflow:hidden;}
-.bg-wrapper{ background:url(../image/bg-main-bottom.jpg) center bottom no-repeat fixed;background-size:100% 347px;}
+.bg-wrapper{ background:url(../image/bg-main-bottom.jpg) center bottom no-repeat fixed;}
 .loading{background: url("../image/loading.gif") center center no-repeat;}
-/* 响应式容器宽度 */
-@media screen and (min-width:1435px) {
-	.wrapper{width:1382px;}
-}
-@media screen and (max-width:1434px) {
-	.wrapper{width:1150px;}
-}
-@media screen and (max-width:1202px) {
-	.wrapper{width:918px;}
-}
-@media screen and (max-width:970px) {
-	.wrapper{width:686px;}
-}
+
 
 /* 输入框  文本域 */
 input[type="text"]{padding:2px 4px;height:18px;line-height:18px;background-color: #fff;border: 2px solid #E7E6E3;color:#7a6f68;border-radius: 3px;-moz-transition:.2s;-webkit-transition:.2s;transition:.2s;}
@@ -58,15 +46,15 @@ input[type="text"]:focus{border-color:#e0cd96;outline:none;}
 .header-inner{height:50px;background: url(../image/header-bar-line.png) 0 -1px repeat-x #fff;border-bottom:1px solid #dbefee}
 
 .header-inner .header-bar{}
-.header-inner .header-bar .logo{ position: absolute;width:270px;height:61px;left:15px;top:0;background-image: url(../slice/logo.png)}
+.header-inner .header-bar .logo{ position: absolute;z-index:2;width:270px;height:61px;left:15px;top:0;background-image: url(../slice/logo.png)}
 
-.header-inner .header-bar .tab-nav{margin-left:300px;}
+.header-inner .header-bar .tab-nav{margin-left:300px; float: left;}
 .header-inner .header-bar .tab-nav ul{}
 .header-inner .header-bar .tab-nav li,
 .header-inner .header-bar .tab-nav a{ float: left;height:45px;line-height:45px;font-size:14px;}
 .header-inner .header-bar .tab-nav li{padding-left:4px; position: relative;}
 .header-inner .header-bar .tab-nav a{padding:0 24px;}
-.header-inner .header-bar .tab-nav b{ display: block;margin-top:15px;height:16px;line-height:100px;overflow:hidden;opacity:.8;filter:Alpha(opacity=80);}
+.header-inner .header-bar .tab-nav b{ display: block;margin-top:15px;height:16px;line-height:100px;overflow:hidden;opacity:.9;filter:Alpha(opacity=90);}
 .header-inner .header-bar .tab-nav .on a{background: url(../image/nav-on-right.png) right 0 no-repeat;}
 .header-inner .header-bar .tab-nav .on{background: url(../image/nav-on-left.png)  0 0 no-repeat;}
 .header-inner .header-bar .tab-nav a:hover b,
@@ -82,6 +70,9 @@ input[type="text"]:focus{border-color:#e0cd96;outline:none;}
 .header-inner .header-bar .btn-upload.hide{margin-top:-29px;}
 
 .header-inner .header-bar .user-desc input[type="text"]{width:200px;vertical-align: top;}
+
+
+
 .header-inner .header-bar .user-desc .btn-toupload{margin-left:8px;vertical-align: top;background-image: url(../slice/btn-toupload.png);}
 .header-inner .header-bar .user-desc .btn-toupload:hover{ background-image: url(../slice/btn-toupload-hover.png);}
 .header-inner .header-bar .user-desc .btn-toupload:active{ background-image: url(../slice/btn-toupload-active.png);}
@@ -107,7 +98,7 @@ input[type="text"]:focus{border-color:#e0cd96;outline:none;}
 .main .item{ position: relative;width:222px;background-color: #fff;box-shadow:0 1px 2px rgba(0,0,0,.15);margin-bottom:10px;margin-left:10px;}
 .main .item:before{content:"////////////////////////";display:block;background-color:#F2EFEB;color:#fff;height:4px;line-height:4px;box-shadow:0 1px 1px rgba(0,0,0,.1);font-size:40px;font-family:arial;overflow:hidden;}
 .main .item .item-inner{ position: relative;overflow:hidden;}
-.main .item .item-pic{padding:10px 10px 0 10px;}
+.main .item .item-pic{padding:10px 10px 0 10px;overflow:hidden;}
 .main .item .item-pic img{ vertical-align: top;width:202px;cursor:pointer;opacity:.9;-moz-transition:opacity .4s;-webkit-transition:opacity .4s;transition:opacity .4s;}
 .main .item .item-pic img:hover{opacity:1;}
 .main .item .item-info{line-height:22px;padding:5px 10px;}
@@ -124,6 +115,30 @@ input[type="text"]:focus{border-color:#e0cd96;outline:none;}
 .main .item:hover .item-op{opacity:1;top:15px;-moz-transition:.2s;-webkit-transition:.2s;transition:.2s;}
 .item-op .ui-icon{ float: left;width:32px;height:32px;margin-left:5px;}
 
+/*瀑布流的transition*/
+.masonry,
+.masonry .masonry-brick {
+  -webkit-transition-duration: 0.7s;
+     -moz-transition-duration: 0.7s;
+      -ms-transition-duration: 0.7s;
+          transition-duration: 0.7s;
+}
+
+.masonry {
+  -webkit-transition-property: height, width;
+     -moz-transition-property: height, width;
+      -ms-transition-property: height, width;
+          transition-property: height, width;
+}
+
+.masonry .masonry-brick {
+  -webkit-transition-property: left, right, top;
+     -moz-transition-property: left, right, top;
+      -ms-transition-property: left, right, top;
+          transition-property: left, right, top;
+}
+
+/* 操作icon */
 .icon-like{ background-image: url(../slice/icon-like.png);}
 .icon-like:hover{background-image: url(../slice/icon-like-hover.png);}
 .icon-share{ background-image: url(../slice/icon-share.png);}
@@ -133,10 +148,11 @@ input[type="text"]:focus{border-color:#e0cd96;outline:none;}
 .main .item .item-sd{ position:absolute;bottom:-16px;height:16px;width:100%;background: url(../image/item-sd.png) center bottom no-repeat;}
 
 /* loading 文案 */
+.loading-tips-bar{padding-bottom:40px;}
 .loading-txt{font-size:14px;text-align:center;height:100px;line-height:100px;text-shadow:0 1px 0 rgba(255,255,255,.8)}
 
 /* 底部 */
-.footer{height:42px;line-height:48px; text-align:center;background-image: url(../image/bg-bottom.png);overflow:hidden;}
+.footer{ height:42px;line-height:48px; text-align:center;background-image: url(../image/bg-bottom.png);overflow:hidden;}
 
 /* 弹出层 */
 .pop-wrapper{margin:0 auto;background-color: #fff; background-image: url(../image/bg-pop.png);box-shadow:0 1px 3px rgba(0,0,0,.3)}
@@ -186,5 +202,25 @@ input[type="text"]:focus{border-color:#e0cd96;outline:none;}
 /* 大图预览 */
 .zoom-preview{ position: fixed;z-index:50;overflow-y:scroll; background:rgba(0,0,0,.3);left:0;right:0;bottom:0;top:0;width:100%;height:0;-moz-transition:background .6s;-webkit-transition:background .6s;transition:background .6s;
 	background-image:url(../image/mask-ie.png) \9; /* ie7,8 下渐变滤镜导致滚动轴事件失效，用图片代替*/}
-.zoom-show{height:100%;background:rgba(0,0,0,.9);}
+.zoom-show{height:100%;background:rgba(0,0,0,.5);}
 :root .zoom-show{filter:none;background-image:none;}
+
+/* 响应式容器宽度 */
+@media screen and (min-width:1435px) {
+	.wrapper{width:1382px;}
+}
+@media screen and (max-width:1434px) {
+	.wrapper{width:1150px;}
+}
+@media screen and (max-width:1202px) {
+	.wrapper{width:918px;}
+	.header-inner .header-bar .user-desc input[type="text"]{width:162px;}
+}
+@media screen and (max-width:970px) {
+	.wrapper{width:686px;}
+	.main{padding-top:130px; }
+
+	.header-inner{height:120px; background-position:0 bottom;}
+	.header-inner .header-bar .tab-nav{margin-top:70px;margin-left:10px;}
+	.header-inner .header-bar .header-info{margin-top:10px;}
+}
