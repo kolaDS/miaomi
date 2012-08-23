@@ -338,7 +338,6 @@ var Miaomi={
 		});
 	}
 	M.upLoadFile.callback = function(o){
-	console.log(o);
 		//成功上传之后的返回值
 		var imgId = o.imgid,
 			imgName = o.imgname,
@@ -362,8 +361,8 @@ var Miaomi={
 
 			//图片加载完后插入
 			$newItem.imagesLoaded(function(){
-				$newItem.animate({opacity:1});
 				$('#mainList').prepend($newItem).masonry('reload');
+				$newItem.animate({opacity:1});
 			})
 
 
