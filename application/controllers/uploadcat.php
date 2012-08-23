@@ -21,11 +21,8 @@ class uploadcat extends CI_Controller {
     {
         session_start();
         date_default_timezone_set('UTC');
-        // $suffix = '<scr'.'ipt>parent.Miaomi.upLoadFile.callback(';
-        $suffix = '';
-        
-        // $ss2 = ');</script>';
-        $ss2 = '';
+         $suffix = '<scr'.'ipt>parent.Miaomi.upLoadFile.callback(';
+         $ss2 = ');</script>';
         //Todo hard code
         if(isset($_SESSION['user']))
         {
