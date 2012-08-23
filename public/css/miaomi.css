@@ -132,10 +132,11 @@ input[type="text"]:focus{border-color:#e0cd96;outline:none;}
 .main .item .item-sd{ position:absolute;bottom:-16px;height:16px;width:100%;background: url(../image/item-sd.png) center bottom no-repeat;}
 
 /* loading 文案 */
+.loading-tips-bar{padding-bottom:40px;}
 .loading-txt{font-size:14px;text-align:center;height:100px;line-height:100px;text-shadow:0 1px 0 rgba(255,255,255,.8)}
 
 /* 底部 */
-.footer{height:42px;line-height:48px; text-align:center;background-image: url(../image/bg-bottom.png);overflow:hidden;}
+.footer{ height:42px;line-height:48px; text-align:center;background-image: url(../image/bg-bottom.png);overflow:hidden;}
 
 /* 弹出层 */
 .pop-wrapper{margin:0 auto;background-color: #fff; background-image: url(../image/bg-pop.png);box-shadow:0 1px 3px rgba(0,0,0,.3)}
@@ -185,7 +186,7 @@ input[type="text"]:focus{border-color:#e0cd96;outline:none;}
 /* 大图预览 */
 .zoom-preview{ position: fixed;z-index:50;overflow-y:scroll; background:rgba(0,0,0,.3);left:0;right:0;bottom:0;top:0;width:100%;height:0;-moz-transition:background .6s;-webkit-transition:background .6s;transition:background .6s;
 	background-image:url(../image/mask-ie.png) \9; /* ie7,8 下渐变滤镜导致滚动轴事件失效，用图片代替*/}
-.zoom-show{height:100%;background:rgba(0,0,0,.9);}
+.zoom-show{height:100%;background:rgba(0,0,0,.5);}
 :root .zoom-show{filter:none;background-image:none;}
 
 /* 响应式容器宽度 */

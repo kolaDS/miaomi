@@ -1,9 +1,8 @@
 
-
 var newItemHtml = [
 	'<div class="item" imgid="<%=imgid%>">',
 		'<div class="item-inner">',
-			'<div class="item-pic" style="height:<%=imgviewheight%>">',
+			'<div class="item-pic">',
 				'<img src="/miaomi/public/uploads/<%=imgname%>.jpg" class="J-miaoPic" imgid="<%=imgid%>" uid="<%=uid%>" uname="<%=uname%>" uurl="<%=uurl%>" uavatar="<%=uavatar%>" imgtext="<%=imgtext%>" imgdate="<%=imgdate%>" />',
 			'</div>',
 			'<div class="item-info">',

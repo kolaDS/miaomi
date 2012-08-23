@@ -335,26 +335,30 @@ var Miaomi={
 			uName = o.imgdata.upload_data.raw_name,
 			imgOrigHeight = o.imgdata.upload_data.image_height,
 			imgOrigWidth = o.imgdata.upload_data.image_width,
-			imgViewHeight = Math.round(202*imgOrigHeight/imgOrigWidth)+"px";
-		//插入瀑布流中 先给图片容器添加高度
-		$('#mainList').prepend(M.tmpl(newItemHtml, {
-			imgid: '1',
-			imgname: imgName,
-			imglike: '223',
-			uid:  '1',
-			uname:  '1',
-			uurl:  '1',
-			uavatar:  '1',
-			imgtext:  '1',
-			imgdate:  '1',
-			imgviewheight:imgViewHeight
+			$newItem = $(M.tmpl(newItemHtml, {
+							imgid: '1',
+							imgname: imgName,
+							imglike: '223',
+							uid:  '1',
+							uname:  '1',
+							uurl:  '1',
+							uavatar:  '1',
+							imgtext:  '1',
+							imgdate:  '1'
+						})).css({opacity:0});
+			$newItem.imagesLoaded(function(){
+				$newItem.animate({opacity:1});
+				$('#mainList').prepend($newItem).masonry('reload');
+			})
 
-		})).masonry( 'reload' );
+//		$('#mainList').prepend().masonry( 'reload' );
 
 		var btnUpload = $("#btnUpload"),
 			btnUploadWrap = $("#btnUploadWrap"),
-			userDescWrap = $("#userDescWrap");
+			userDescWrap = $("#userDescWrap"),
+			imgText = $("#imgText");
 		btnUpload.val("");
+		imgText.val("");
 		btnUploadWrap.removeClass("hide");
 		userDescWrap.hide();
 	}
