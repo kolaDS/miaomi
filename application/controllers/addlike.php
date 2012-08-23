@@ -7,7 +7,7 @@ class addlike extends CI_Controller {
         parent::__construct();
     }
 
-    public function index($imgid=2)
+    public function index($imgid)
     {
         if(isset($_POST['imgid'])) $imgid=$_POST['imgid'];
         session_start();

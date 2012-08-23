@@ -39,6 +39,13 @@ var Miaomi={
 			}
 		});		
 	},
+	
+
+	addShare:function(iconShareEL){
+		var imgEl=iconShareEL.parents(".item-inner").find("img");
+		var imgEl_url=imgEl.attr("src");		
+		this.log(imgEl_url);
+	},
 	// 提交评论
 	uploadComment:function(imgid,text){
 		$.post(
@@ -107,7 +114,10 @@ var Miaomi={
 	M.initIconLike=function(){
 		$(".icon-like").click(function(){M.addLike($(this))});
 		
-	}
+	};
+	M.initIconShare=function(){
+		$(".icon-share").click(function(){M.addShare($(this))});
+	};
 	//弹出层方法 selector参数为关闭弹出层的元素，若为空，则默认点击空白处隐藏弹出层
 	M.initPop = function(selector){
 		var body = $('body'),
@@ -389,6 +399,7 @@ var Miaomi={
 	M.init();
     M.initMasonry();
     M.initIconLike();
+    M.initIconShare();
 	M.initPopImg();
 	M.initInput();
 	M.upLoadFile();

@@ -13,11 +13,10 @@ class Img extends CI_Model {
         date_default_timezone_set('UTC');        
         $date=date("Y-m-d H-i-s");
         $data['imgdate']=$date;
-        $this->load->database();                      
-
-        if($this->db->insert('img', $data))        return true;
-        else return false;
-       
+        $this->load->database();
+        $this->db->insert('img', $data);    
+        $imgid=$this->db->query("SELECT last_insert_id() as imgid from img limit 1")->row()->imgid;
+        return $imgid;
     }
 
     function getImg($num=10)
@@ -28,7 +27,7 @@ class Img extends CI_Model {
         return $data_array;
     }
 
-    function getImgUser($numS=0,$count=10,$lastImgid=0)
+    function getImgUser($numS=0,$count=1,$lastImgid=0)
     {
         $this->load->database();
         $this->db->select("*");
