@@ -27,7 +27,7 @@
 	</div>
 	<?php endforeach;?>
 </div>
-<div id="page-nav" style=""><a href="/miaomi/imglist/page/20"></a></div>
+<div id="page-nav" style="clear: both;padding:20px 0;"><a href="/miaomi/imglist/page/20">加载更多...</a></div>
     
 <!-- 图片列表 -->
 <div class="loading-tips-bar"><p class="loading-txt none">喵~没有更多了~</p></div>
