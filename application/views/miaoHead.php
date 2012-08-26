@@ -31,7 +31,7 @@
 				<div class="header-info">
 					<?php if(isset($uid)): ?>
 					<div class="head-user" id="head-user" uid="<?php echo $uid ?>" uname="<?php echo $uname?>" uurl="<?php echo $uurl?>" uavatar="<?php echo $uavatar ;?>"  >
-						<a  href="#" class="user-avatar"><img src="<?php echo $uavatar ;?>" ></a> <span>喵～<?php echo $uname; ?>～</span>
+						<a  href="#" class="user-avatar"><img src="<?php echo $uavatar ;?>" ></a> <span class="textoverflow user-nickname">喵～<?php echo $uname; ?>～</span>
 					</div>
 					<div class="fn_uploadcat">
 						<form action="uploadcat/do_upload" target="unvisibleiframe" method="post" accept-charset="utf-8" enctype="multipart/form-data" id="formUpload">
