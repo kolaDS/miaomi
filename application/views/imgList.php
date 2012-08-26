@@ -9,7 +9,7 @@
 			</div>
 			<div class="item-info">
 				<p class="item-describe-txt"><?php echo($item['imgtext']);?></p>
-				<p class="item-info-num"><span class="num-like"><span class="num-like-detail" imgid="<?php echo($item['imgid']);?>"><?php echo($item['imglike']);?></span>喜欢</span><span class="num-share">2分享</span></p>
+				<p class="item-info-num"><span class="num-com">12评论</span><span class="num-like"><span class="num-like-detail" imgid="<?php echo($item['imgid']);?>"><?php echo($item['imglike']);?></span>喜欢</span><span class="num-share">2分享</span></p>
 			</div>
 			<div class="item-describe">
 					<a target="_blank" class="avatar-wrap" href="http://weibo.com/<?php echo($item['uurl']);?>"><img class="avatar" src="<?php echo($item['uavatar']); ?>"/></a>
@@ -17,8 +17,9 @@
 					<p class="item-upload-info"><?php echo($item['imgdate']);?> 上传</p>
 			</div>
 			<div class="item-op">
-				<a href="javascript:void(0);" class="ui-icon icon-like"  imgid="<?php echo($item['imgid']);?>">喜欢</a>
-				<a href="javascript:void(0);" class="ui-icon icon-share">分享</a>
+				<a href="javascript:void(0);" class="ui-icon icon-com" title="评论">评论</a>
+				<a href="javascript:void(0);" class="ui-icon icon-like"  imgid="<?php echo($item['imgid']);?>" title="喜欢">喜欢</a>
+				<a href="javascript:void(0);" class="ui-icon icon-share" title="分享">分享</a>
 			</div>
 		</div>
 

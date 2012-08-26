@@ -5,7 +5,7 @@ var Miaomi={
 	init:function(){
 		this.getCurrentUser();
 	},
-	$innerPreview:$("#innerPreview"),
+
 	// 打印方法
 	log:function(i){
 		console.log(i);
@@ -23,10 +23,6 @@ var Miaomi={
     scrollList:function(){
 
     },
-	// 插入浮层方法
-	pop:function(htmlString){
-		this.$innerPreview.append(htmlString);
-	},
 	// 添加赞
 	addLike:function(iconLikeEL){		
 		var imgid=iconLikeEL.attr('imgid');
@@ -118,54 +114,62 @@ var Miaomi={
 	M.initIconShare=function(){
 		$(".icon-share").click(function(){M.addShare($(this))});
 	};
-	//弹出层方法 selector参数为关闭弹出层的元素，若为空，则默认点击空白处隐藏弹出层
-	M.initPop = function(selector){
+	//弹出层对象
+	M.pop = function(){
 		var body = $('body'),
 			html = $('html'),
-			sTop = html.scrollTop(),
-			popPreviewed = 0,
+			//sTop = html.scrollTop(),
+			//弹出层标志位
+			popFlag = 0,
 			popPreviewContainer = $('#zoomPreview'),
-			popInner=$("#innerPreview"),
-			popShow = function(){
-				html.scrollTop(sTop);
-				html.addClass('noscroll');
-				if(!popPreviewed){
-					 popPreviewContainer.addClass('zoom-show');
-					popPreviewed = 1;
-				}
-			},
-			popHide = function(){
-				popPreviewContainer.removeClass('zoom-show');
-				popInner.empty();
-				html.removeClass('noscroll');
-				popPreviewed = 0;
+			popInner=$("#innerPreview");
+		function popShow(){
+			var sTop = html.scrollTop();
+			html.scrollTop(sTop);
+			html.addClass('noscroll');
+			if(!popFlag){
+				 popPreviewContainer.addClass('zoom-show');
+				popFlag = 1;
 			}
-				//弹出层显示
-			popShow();
-				//弹出层消失
-			if(selector){
-				selector.click(function(){
-					popHide();
-				})
-			}
-			else{
-				popPreviewContainer.click(
-					function(e){
+		}
+		function popHide(){
+			popPreviewContainer.removeClass('zoom-show');
+			popInner.empty();
+			html.removeClass('noscroll');
+			popFlag = 0;
+		}
+		return {
+			// 弹出层方法 closeElm是关闭开关
+			init:function(closeElm){
+				var argLen = arguments.length;
+				popShow();
+				if(argLen == 0){
+					popPreviewContainer.click(
+						function(e){
 							var $target = $(e.target);
 							e.stopPropagation();
 							if($target.is(popPreviewContainer)){
 								popHide();
 						}
+					}
+					);
+				}else{
+					closeElm.click(function(){
+						popHide();
+					})
 				}
-				);
-			}
+			},
+			//弹出层插入内容的方法
+			insertHtml:function(htmlString){
+					popInner.append(htmlString);
+				}
+		};
 
-	}
+	}();
+
 	M.initPopImg=function(){
 		//图片点击事件
 		var pics = $('.J-miaoPic');
-
-
 		//图片点击之后显示数据
 		pics.each(function(){
 			var $pic = $(this);
@@ -182,7 +186,7 @@ var Miaomi={
 				// 加载谁也喜欢
 				M.getWhoLikeThisImg("#list-who-like",data.imgid);
 
-				M.initPop();
+				M.pop.init();
 
 			})
 		});
@@ -201,7 +205,7 @@ var Miaomi={
 			imgdate:El.attr("imgdate")
 		}
 		return obj;
-	}
+	};
 	// 通过传入一个obj信息，把图片展示出来
 	M.popImg=function(obj){
 		var popImg_HTML="\
@@ -221,6 +225,7 @@ var Miaomi={
 		<div class='pic-preview-inner'>\
 			<a href='#'><img src='"+obj.imgurl+"'alt='' class='pic'></a>\
 			<div class='item-op'>\
+				<a href='#' class='ui-icon icon-com'>评论</a>\
 				<a href='#' class='ui-icon icon-like'>喜欢</a>\
 				<a href='#' class='ui-icon icon-share'>分享</a>\
 			</div>\
@@ -255,8 +260,8 @@ var Miaomi={
 			</ul>\
 		</div>\
 	</div>";	
-	this.pop(popImg_HTML);
-	}
+	this.pop.insertHtml(popImg_HTML);
+	};
 	// 得到评论并且插入评论
 	M.popCommenList=function(obj){
 		$.post(
@@ -299,7 +304,7 @@ var Miaomi={
 				</div>\
 			</div>\
 		    </div>";
-		    M.pop(commlist_HTML); 
+		    M.pop.insertHtml(commlist_HTML);
 		    $(".btn-submit").click(function(){
 		    	var $textarea=$(this).parents(".mod-comment-report").find(".report-textarea");
 		    	var comm_text=$textarea.val();
@@ -308,7 +313,7 @@ var Miaomi={
 		    	M.uploadComment(comm_imgid,comm_text);
 		    });
 		});
-	}
+	};
 	//输入框和占位文字 label + input 结构  label标签带有 J-holder 类名即可
 	M.initInput = function(){
 		var inputText = $("label + input");
@@ -322,60 +327,99 @@ var Miaomi={
 				});
 			}
 		})
-	}
+	};
 
-	//上传文件
+	//上传文件对象
 	M.upLoadFile = function(){
+		//私有属性和方法
 		var btnUpload = $("#btnUpload"),
 			btnUploadWrap = $("#btnUploadWrap"),
 			formUpload = $("#formUpload"),
-			userDescWrap = $("#userDescWrap");
-
-		btnUpload.change(function(){
-			//需添加一个文件格式判断
-			btnUploadWrap.addClass("hide");
-			userDescWrap.show();
-		});
-	}
-	M.upLoadFile.callback = function(o){
-		//成功上传之后的返回值
-		var imgId = o.imgid,
-			imgName = o.imgname,
-			imgText = o.imgtext,
-				//添加用户信息
-			uName = M.currentUser.uname,
-			uUrl = M.currentUser.uurl,
-			uId = M.currentUser.uid,
-			uAvatar = M.currentUser.uavatar,
-			$newItem = $(M.tmpl(newItemHtml, {
-							imgid: imgId,
-							imgname: imgName,
-							imglike: '223',
-							uid:  uId,
-							uname:  uName,
-							uurl:  uUrl,
-							uavatar:  uAvatar,
-							imgtext:  imgText,
-							imgdate:  '刚刚'
-						})).css({opacity:0});
-
-			//图片加载完后插入
-			$newItem.imagesLoaded(function(){
-				$('#mainList').prepend($newItem).masonry('reload');
-				$newItem.animate({opacity:1});
-			})
-
-
-		var btnUpload = $("#btnUpload"),
-			btnUploadWrap = $("#btnUploadWrap"),
 			userDescWrap = $("#userDescWrap"),
 			imgTextInput = $("#imgText");
-		btnUpload.val("");
-		imgTextInput.val("");
-		btnUploadWrap.removeClass("hide");
-		userDescWrap.hide();
-	}
-	//js猫版引擎方法
+		function fileTypeJudge(){
+			var allowType = ["jpg","jpeg","bmp","gif","png"],
+				filePath = btnUpload.val(),
+				fileType = filePath.substring(filePath.lastIndexOf(".")+1).toLowerCase(),
+				inArr = function(needle, haystack){
+					var type = typeof needle;
+					if(type == "string" || type =="number"){
+						for(var i in haystack){
+							if(haystack[i] == needle){
+								return true;
+							}
+						}
+					}
+					return false;
+				}
+				return inArr(fileType,allowType);
+		}
+		function hasFileChange(){
+			var judgeRes = fileTypeJudge();
+			if(judgeRes){
+			btnUploadWrap.addClass("hide");
+			userDescWrap.show();
+			}else{
+				M.pop.init();
+				btnUpload.val("");
+			}
+		}
+		function formReset(){
+			btnUpload.val("");
+			imgTextInput.val("");
+			imgTextInput.prev(".J-holder").show();
+			btnUploadWrap.removeClass("hide");
+			userDescWrap.hide();
+		}
+		return {
+			callback:function(o){
+				//成功上传之后的返回值
+				var uploadFlag = o['error'];
+				if(!uploadFlag){
+					var imgId = o.imgid,
+						imgName = o.imgname,
+						imgText = o.imgtext,
+							//添加用户信息
+						uName = M.currentUser.uname,
+						uUrl = M.currentUser.uurl,
+						uId = M.currentUser.uid,
+						uAvatar = M.currentUser.uavatar,
+						$newItem = $(M.tmpl(newItemHtml, {
+										imgid: imgId,
+										imgname: imgName,
+										imglike: '223',
+										uid:  uId,
+										uname:  uName,
+										uurl:  uUrl,
+										uavatar:  uAvatar,
+										imgtext:  imgText,
+										imgdate:  '刚刚'
+									})).css({opacity:0});
+						//图片加载完后插入
+						$newItem.imagesLoaded(function(){
+							$('#mainList').prepend($newItem).masonry('reload');
+							$newItem.animate({opacity:1});
+						})
+						//上传表单重置
+					formReset();
+				}else{
+					M.pop.init();
+					formReset();
+						switch (uploadFlag) {
+							// 图片尺寸太大（宽/高）
+							case 111:M.log(1);
+					}
+				}
+			},
+			//上传框里的值改变时z执行
+			fileChange: function(){
+				btnUpload.change(hasFileChange);
+			}
+		}
+	}();
+	M.upLoadFile.fileChange();
+
+	//js模板引擎方法
 	M.tmpl = function tmpl(str, data){
 		var cache = {},
 	   		fn = !/\W/.test(str) ?
@@ -405,6 +449,5 @@ var Miaomi={
     M.initIconShare();
 	M.initPopImg();
 	M.initInput();
-	M.upLoadFile();
 })(jQuery,Miaomi);
 
