@@ -102,7 +102,8 @@
                         // show elems now they're ready
                         $newElems.animate({ opacity:1 });
                         $container.masonry('appended', $newElems, true);
-                        var lastimgid=$(".item").last().attr("imgid");                        
+                        var lastimgid=$(".item").last().attr("imgid");  
+                        Miaomi.log(lastimgid);                      
                         $("#page-nav a").attr("href","/miaomi/imglist/page/"+lastimgid);
                     });
                 }
