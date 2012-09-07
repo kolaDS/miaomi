@@ -162,7 +162,19 @@ var Miaomi={
 			//弹出层插入内容的方法
 			insertHtml:function(htmlString){
 					popInner.append(htmlString);
-				}
+				},
+			//提示弹出层，带关闭按钮
+			tipsInit:function(popClose){
+							popShow();
+							var popTips = $(".pop-tips"),
+								popHeight = popTips.outerHeight(),
+								popWidth = popTips.outerWidth();
+							popTips.css({
+								"margin-top":-popHeight/2,
+								"margin-left":-popWidth/2
+							});
+							popClose.click(function(){popHide();})
+			}
 		};
 
 	}();
@@ -270,41 +282,22 @@ var Miaomi={
 		 ).success(function(data) {// 转换成json
 		    var commlist=eval(data);
 		    // 遍历
-		    var commlist_HTML="<div class='mod-comment'>\
-			<div class='mod-comment-list'>\
-				<ul class='list'>";
+		    var commlist_HTML= M.tmpl(commlist_HTML_hd,{});
 		    for(var index in commlist)
 		    	{
-		    		commlist_HTML+="<li class='list-item'>\
-						<div class='mod-avatar-txt'>\
-							<a href='#' class='avatar-wrap'><img src='"+commlist[index].uavatar+"' alt='' class='avatar'></a>\
-							<div class='txt-wrap'>\
-								<p class='nickname-wrap'>\
-									<a href='#' class='nickname'>"+commlist[index].comment_uname+"</a>\
-									<span class='date'>"+commlist[index].comment_date+"</span>\
-								</p>\
-								<p>"+commlist[index].comment_text+"</p>\
-							</div>\
-						</div>\
-					</li>";
-//					M.log(commlist[index]);
+					commlist_HTML += M.tmpl(commlist_HTML_loop,{
+										comment_uavatar: commlist[index].uavatar,
+										comment_uname: commlist[index].comment_uname,
+										comment_date: commlist[index].comment_date,
+										comment_text: commlist[index].comment_text
+									});
 				}
-
-		    commlist_HTML+="</ul></div>\
-		    <div class='mod-comment-report' comment_imgid='"+obj.imgid+"'>\
-				<div class='avatar-wrap'>\
-					<img src='"+M.currentUser.uavatar+"' alt='' class='avatar'>\
-				</div>\
-				<div class='report-container'>\
-					<div class='report-textarea-wrapper'>\
-						<textarea id='' class='report-textarea'></textarea>\
-					</div>\
-				<div class='report-op-wrapper'>\
-					<a href='#' class='btn-M btn-submit'>提交</a>\
-				</div>\
-			</div>\
-		    </div>";
+			commlist_HTML += M.tmpl(commlist_HTML_ft,{
+								imgid:obj.imgid,
+								cur_uavatar:M.currentUser.uavatar
+							});
 		    M.pop.insertHtml(commlist_HTML);
+
 		    $(".btn-submit").click(function(){
 		    	var $textarea=$(this).parents(".mod-comment-report").find(".report-textarea");
 		    	var comm_text=$textarea.val();
@@ -357,11 +350,14 @@ var Miaomi={
 		function hasFileChange(){
 			var judgeRes = fileTypeJudge();
 			if(judgeRes){
-			btnUploadWrap.addClass("hide");
-			userDescWrap.show();
+				btnUploadWrap.addClass("hide");
+				userDescWrap.show();
 			}else{
-				M.pop.init();
-				btnUpload.val("");
+				var warningTips = M.tmpl(warning_tips,{tips:"骚年~ 只支持jpg、jpeg、bmp、gif、png的文件上传噢~ "});
+				M.pop.insertHtml(warningTips);
+				var popClose = $(".pop-close,.btn-sure");
+				M.pop.tipsInit(popClose);
+				formReset();
 			}
 		}
 		function formReset(){
@@ -403,15 +399,14 @@ var Miaomi={
 						//上传表单重置
 					formReset();
 				}else{
-					M.pop.init();
+					var warningTips = M.tmpl(warning_tips,{tips:"orz~上传失败了，换个姿势再来一次吧~"});
+					M.pop.insertHtml(warningTips);
+					var popClose = $(".pop-close,.btn-sure");
+					M.pop.tipsInit(popClose);
 					formReset();
-						switch (uploadFlag) {
-							// 图片尺寸太大（宽/高）
-							case 111:M.log(1);
-					}
 				}
 			},
-			//上传框里的值改变时z执行
+			//上传框里的值改变时执行
 			fileChange: function(){
 				btnUpload.change(hasFileChange);
 			}
