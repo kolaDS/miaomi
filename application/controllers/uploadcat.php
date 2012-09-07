@@ -21,13 +21,8 @@ class uploadcat extends CI_Controller {
     {
         session_start();
         date_default_timezone_set('UTC');
-<<<<<<< HEAD
-         $suffix = '<scr'.'ipt>parent.Miaomi.upLoadFile.callback(';
-         $ss2 = ');</script>';
-=======
         $suffix = '<scr'.'ipt>parent.Miaomi.upLoadFile.callback(';
         $ss2 = ');</script>';
->>>>>>> Revert "简化了上传图片的回传参数"
         //Todo hard code
         if(isset($_SESSION['user']))
         {
