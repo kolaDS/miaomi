@@ -173,6 +173,7 @@ var Miaomi={
 								"margin-top":-popHeight/2,
 								"margin-left":-popWidth/2
 							});
+				M.log(popClose);
 							popClose.click(function(){popHide();})
 			}
 		};
