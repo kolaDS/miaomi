@@ -73,7 +73,7 @@ var warning_tips = [
 			'<div class="pop-tips-inner">',
 				'<div class="pop-tips-hd"><i class="pop-close"></i></div>',
 				'<div class="pop-tips-cont">',
-					'<i class="ui-icon icon_warning"></i><p class="single"><%=tips%></p>',
+					'<i class="ui-icon <%=iconclass%>"></i><p class="pop-tips-text single"><%=tips%></p>',
 				'</div>',
 				'<div class="pop-tips-ft">',
 					'<a href="#" class="btn-M btn-sure"></a>',
