@@ -32,6 +32,7 @@ input[type="text"]{padding:2px 4px;height:18px;line-height:18px;background-color
 input[type="text"]:hover{border-color:#dad8d1;}
 input[type="text"]:focus{border-color:#e0cd96;outline:none;}
 .holder-txt{ position: absolute;height:22px;line-height:22px;top:1px;left:8px;color:#B8B3B0;cursor:text;}
+.focus-holder{color:#d3cecb;}
 
 /* 按钮 */
 .btn-M{ display: inline-block;padding:0;border:0 none;height: 29px;line-height: 200px;font-size:0;overflow: hidden;width: 67px;}
@@ -170,7 +171,8 @@ input[type="text"]:focus{border-color:#e0cd96;outline:none;}
 .pop-tips{ position: fixed;	top:50%;left:50%; background-color: #fff;min-width:300px;border:1px solid #e1c9b9;}
 .pop-tips .pop-tips-inner{ border:2px solid #fdf0df;}
 .pop-tips .pop-tips-cont{padding:5px 30px;font-size:14px;overflow:hidden;}
-.pop-tips .pop-tips-cont .single{ float: left;line-height:60px;white-space:nowrap;}
+.pop-tips .pop-tips-cont .pop-tips-text{overflow:hidden;*zoom:1;}
+.pop-tips .pop-tips-cont .single{line-height:60px;white-space:nowrap;}
 .pop-tips .pop-tips-hd{height:20px;position: relative;}
 .pop-tips .pop-tips-ft{height:30px; position: relative;}
 .icon_warning{ vertical-align: middle;height:60px;width:60px; background-image: url(../slice/icon-warning.png);}

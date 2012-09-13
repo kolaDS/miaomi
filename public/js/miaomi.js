@@ -315,9 +315,16 @@ var Miaomi={
 			var $this = $(this),
 				thisInputHolder = $this.prev();
 			if(thisInputHolder.hasClass("J-holder")){
-				$this.focus(function(){thisInputHolder.hide()});
+				$this.focus(function(){
+					if($this.val() == ""){thisInputHolder.addClass("focus-holder");}
+
+				});
+				$this.keyup(function(){
+					console.log($this.val());
+					if($this.val() != ""){thisInputHolder.removeClass("focus-holder").hide();}
+				});
 				$this.blur(function(){
-					if($this.val()==""){thisInputHolder.show()}
+					if($this.val() == ""){thisInputHolder.removeClass("focus-holder").show();}
 				});
 			}
 		})
@@ -354,7 +361,9 @@ var Miaomi={
 				btnUploadWrap.addClass("hide");
 				userDescWrap.show();
 			}else{
-				var warningTips = M.tmpl(warning_tips,{tips:"骚年~ 只支持jpg、jpeg、bmp、gif、png的文件上传噢~ "});
+				var warningTips = M.tmpl(warning_tips,{
+					iconclass:"icon_warning",
+					tips:"骚年~ 只支持jpg、jpeg、bmp、gif、png的文件上传噢~ "});
 				M.pop.insertHtml(warningTips);
 				var popClose = $(".pop-close,.btn-sure");
 				M.pop.tipsInit(popClose);
@@ -400,7 +409,9 @@ var Miaomi={
 						//上传表单重置
 					formReset();
 				}else{
-					var warningTips = M.tmpl(warning_tips,{tips:"orz~上传失败了，换个姿势再来一次吧~"});
+					var warningTips = M.tmpl(warning_tips,{
+						iconclass:"icon_warning",
+						tips:"orz~上传失败了，换个姿势再来一次吧~"});
 					M.pop.insertHtml(warningTips);
 					var popClose = $(".pop-close,.btn-sure");
 					M.pop.tipsInit(popClose);
