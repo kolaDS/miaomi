@@ -44,6 +44,19 @@ class Img extends CI_Model {
         return $data_array;
     }
 
+    // 获取某用户上传的图片
+    function getImgByUID($uid)
+    {
+        $this->load->database();
+        $this->db->select("*");
+        $this->db->from("img");
+        $this->db->where("imguid",$uid);
+        $this->db->order_by("imgid", "DESC");
+        $query = $this->db->get();
+        $data_array = $query->result_array();
+        return $data_array;
+    }
+
     // 插入喜欢记录
     function imgLike($imgid,$uid)
     {
