@@ -49,8 +49,8 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = '';
+$db['default']['username'] = 'meterscao';
+$db['default']['password'] = 'hello';
 $db['default']['database'] = 'miaomi';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
