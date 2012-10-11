@@ -21,18 +21,19 @@
 				<div class="tab-nav">
 					<ul>
 						<li class="on">
-							<a href="#" class="tab-nav-a"><b>iphone壁纸</b></a>
+							<a href="#" class="tab-nav-a">最新</a>
 						</li>
 						<li>
-							<a href="#" class="tab-nav-b"><b>喵友上传</b></a>
+							<a href="#" class="tab-nav-b">关注</a>
+						</li>
+						<li>
+							<a href="#" class="tab-nav-c">关注</a>
 						</li>
 					</ul>
 				</div>
 				<div class="header-info">
 					<?php if(isset($uid)): ?>
-					<div class="head-user" id="head-user" uid="<?php echo $uid ?>" uname="<?php echo $uname?>" uurl="<?php echo $uurl?>" uavatar="<?php echo $uavatar ;?>"  >
-						<a  href="#" class="user-avatar"><img src="<?php echo $uavatar ;?>" ></a> <span class="textoverflow user-nickname">喵～<?php echo $uname; ?>～</span>
-					</div>
+
 					<div class="fn_uploadcat">
 						<form action="uploadcat/do_upload" target="unvisibleiframe" method="post" accept-charset="utf-8" enctype="multipart/form-data" id="formUpload">
 
@@ -42,8 +43,11 @@
 						</form>
 						<iframe src="" name="unvisibleiframe" id="iframeUpload" style="visibily:hidden;width:0;height:0;position:absolute;left:-999px;top:-999px"></iframe>
 					</div>
+					<div class="head-user" id="head-user" uid="<?php echo $uid ?>" uname="<?php echo $uname?>" uurl="<?php echo $uurl?>" uavatar="<?php echo $uavatar ;?>"  >
+						<a  href="#" class="user-avatar"><img src="<?php echo $uavatar ;?>" ></a>
+					</div>
 					<?php else: ?>
-					<div class="head-user"><a href="/miaomi/login">喵~登陆之后可以上传图片噢~O(∩_∩)O~</a></div>
+					<div class="head-user"><a href="#" onclick="return false;" class="login-btn weibo txt-hidden" title="使用新浪微博账号登录">使用新浪微博账号登录</a><a href="#" onclick="return false;" class="login-btn qzone txt-hidden" title="使用QQ账号登录">使用QQ账号登录</a></div>
 					<?php endif;?>
 
 
@@ -54,6 +58,3 @@
 <!--头部 End-->
 <!--主体 Str-->
 	<div class="main wrapper">
-		<div class="main-top">
-			<p><i class="ui-icon icon-list"></i>共有<em class="pic-num txt-em">209</em>张iphone壁纸</p>
-		</div>

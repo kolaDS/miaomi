@@ -230,7 +230,7 @@ var Miaomi={
 			<p class='nickname-wrap'>\
 				<a href='#' class='nickname'>"+obj.uname+"</a>\
 			</p>\
-			<p>上传于"+obj.imgdate+"</p>\
+			<p>"+obj.imgdate+" 上传</p>\
 		</div>\
 		<i class='icon-adorn'></i>\
 	</div>\
@@ -238,9 +238,9 @@ var Miaomi={
 		<div class='pic-preview-inner'>\
 			<a href='#'><img src='"+obj.imgurl+"'alt='' class='pic'></a>\
 			<div class='item-op'>\
-				<a href='#' class='ui-icon icon-com'>评论</a>\
-				<a href='#' class='ui-icon icon-like'>喜欢</a>\
-				<a href='#' class='ui-icon icon-share'>分享</a>\
+				<a href='#' class='ui-icon icon-like'><i></i>喜欢</a>\
+				<span class='divide'></span>\
+				<a href='#' class='ui-icon icon-com'><i></i>评论</a>\
 			</div>\
 		</div>\
 		<p class='pic-preview-info'>"+obj.imgtext+"</p>\
