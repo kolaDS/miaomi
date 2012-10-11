@@ -18,12 +18,14 @@
 				<div class="item-describe">
 						<a target="_blank" class="avatar-wrap" href="http://weibo.com/<?php echo($item['uurl']);?>"><img class="avatar" src="<?php echo($item['uavatar']); ?>"/></a>
 
-						<p class="item-upload-info"><?php echo($item['imgdate']);?> 上传</p>
+						<p class="item-upload-info"><a href="#" class="nickname"><?php echo($item['uname']); ?></a><?php echo($item['imgdate']);?> 上传</p>
 				</div>
 			<div class="item-op">
-				<a href="javascript:void(0);" class="ui-icon icon-com" title="评论">评论</a>
-				<a href="javascript:void(0);" class="ui-icon icon-like"  imgid="<?php echo($item['imgid']);?>" title="喜欢">喜欢</a>
-				<a href="javascript:void(0);" class="ui-icon icon-share" title="分享">分享</a>
+
+				<a href="javascript:void(0);" class="ui-icon icon-like"  imgid="<?php echo($item['imgid']);?>" title="喜欢"><i></i>喜欢</a>
+				<span class="divide"></span>
+				<a href="javascript:void(0);" class="ui-icon icon-com" title="评论"><i></i>评论</a>
+
 			</div>
 		</div>
 
