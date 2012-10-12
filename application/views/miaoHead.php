@@ -30,6 +30,7 @@
 							<a href="#" class="tab-nav-c">关注</a>
 						</li>
 					</ul>
+
 				</div>
 				<div class="header-info">
 					<?php if(isset($uid)): ?>

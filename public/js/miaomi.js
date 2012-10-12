@@ -163,6 +163,8 @@ var Miaomi={
 			insertHtml:function(htmlString){
 					popInner.append(htmlString);
 				},
+			//关闭弹出层方法
+			tipsClose:function(){popHide();},
 			//提示弹出层，带关闭按钮
 			tipsInit:function(popClose){
 							popShow();
@@ -173,7 +175,7 @@ var Miaomi={
 								"margin-top":-popHeight/2,
 								"margin-left":-popWidth/2
 							});
-				M.log(popClose);
+//				M.log(popClose);
 							popClose.click(function(){popHide();})
 			}
 		};
@@ -446,7 +448,22 @@ var Miaomi={
 	    + "');}return p.join('');");
 	  return data ? fn( data ) : fn;
 	};
-
+	//回到顶部
+	M.goTop =function goTop(){
+		var btnGoTop = $("#goTop"),
+			sideScrollFun = function() {
+				var st = $(document).scrollTop(); //开始向下滚动的时候出现，加上渐隐渐显效果
+				(st > 0) ? btnGoTop.show() : btnGoTop.hide();
+			} //绑定一下
+			$(window).bind("scroll", sideScrollFun);
+			btnGoTop.click(function() { //滚动的动画效果
+				$("html, body").animate({
+					scrollTop: 0
+				},
+				400);
+				return false;
+			})
+	}
 })(jQuery,Miaomi);
 
 (function($,M){
@@ -456,5 +473,14 @@ var Miaomi={
     M.initIconShare();
 	M.initPopImg();
 	M.initInput();
+	M.goTop();
 })(jQuery,Miaomi);
+//登陆测试
+$("#loginTest").click(function(){
+	var loginTips = Miaomi.tmpl(login_tips);
+	Miaomi.pop.insertHtml(loginTips);
+	var popClose = $(".pop-close");
+	Miaomi.pop.tipsInit(popClose);
+
+});
 

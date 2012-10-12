@@ -33,7 +33,7 @@
 	</div>
 	<?php endforeach;?>
 </div>
-<div id="page-nav" style="clear: both;padding:20px 0;"><a href="/miaomi/imglist/page/20">加载更多...</a></div>
-    
+    <div class="pager wrapper"><div class="pager-inner"><a href="#" class="prev">上一页</a><a href="#" class="current">1</a><a href="#">2</a><a href="#">3</a><span class="ellipsis">...</span><a href="#">4</a><a href="#" class="next">下一页</a></div></div>
+
 <!-- 图片列表 -->
-<div class="loading-tips-bar"><p class="loading-txt none">喵~没有更多了~</p></div>
+
