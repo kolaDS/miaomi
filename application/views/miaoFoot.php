@@ -2,9 +2,10 @@
 </div>
 <!--主体 End-->
 <!--底部 Str-->
-<div class="footer">Copyright <span>&copy;</span> <a href="http://himeters.com/">meters</a>/<a href="http://hikola.com/">kola</a> All Rights Reserved.</div>
+<div class="footer"><div class="footer-inner wrapper">Copyright <span>&copy;</span> <a href="http://himeters.com/">meters</a>/<a href="http://hikola.com/">kola</a> All Rights Reserved.</div></div>
 <!--底部 End-->
 </div>
+<a href="#" class="btn-go-top" id="goTop">回到顶部</a>
 <!--大图查看弹出层 Str-->
 <div id="zoomPreview" class="zoom-preview">
 	<div id='popPreview' class='pop-wrapper pop-preview'>

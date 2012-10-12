@@ -82,3 +82,18 @@ var warning_tips = [
 			'</div>',
 		'</div>'
 ].join('');
+
+//登录弹出层
+var login_tips =[
+	'<div class="pop-tips pop-tips-login">',
+		'<div class="pop-tips-inner">',
+			'<div class="pop-tips-hd"><i class="pop-close"></i></div>',
+			'<div class="pop-tips-cont">',
+				'<p>矮油~登录之后才能继续操作噢~</p>',
+			'</div>',
+			'<div class="pop-tips-ft">',
+				'<a href="#" class="btn-login btn-login-weibo">微博账号</a><a href="#" class="btn-login btn-login-qzone">QQ账号</a>',
+			'</div>',
+		'</div>',
+	'</div>'
+].join('');
