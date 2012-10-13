@@ -4,7 +4,7 @@ var newItemHtml = [
 				'<i class="item-top"></i>',
 				'<div class="item-main">',
 					'<div class="item-pic">',
-						'<img src="/miaomi/public/uploads/<%=imgname%>.jpg" class="J-miaoPic" imgid="<%=imgid%>" uid="<%=uid%>" uname="<%=uname%>" uurl="<%=uurl%>" uavatar="<%=uavatar%>" imgtext="<%=imgtext%>" imgdate="<%=imgdate%>" />',
+						'<img src="public/uploads/<%=imgname%>.jpg" class="J-miaoPic" imgid="<%=imgid%>" uid="<%=uid%>" uname="<%=uname%>" uurl="<%=uurl%>" uavatar="<%=uavatar%>" imgtext="<%=imgtext%>" imgdate="<%=imgdate%>" />',
 					'</div>',
 					'<div class="item-info">',
 						'<p class="item-describe-txt"><%=imgtext%></p>',
