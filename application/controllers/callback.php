@@ -71,7 +71,7 @@ class callback extends CI_Controller {
     public function checkIfHasThisUser($uid)
     {
     	$this->load->database();
-    	$query=$this->db->query("SELECT uname from user where uid =" . $uid);
+    	$query=$this->db->query("SELECT * from user where uid =" . $uid);
     	if($query->num_rows() > 0) return true;
     	else false;
     }

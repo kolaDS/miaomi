@@ -16,9 +16,9 @@
 				</div>
 				<i class="item-hr"></i>
 				<div class="item-describe">
-						<a target="_blank" class="avatar-wrap" href="user/index/<?php echo($item['uid']);?>"><img class="avatar" src="<?php echo($item['uavatar']); ?>"/></a>
+						<a target="_blank" class="avatar-wrap" href="<?php echo(base_url('user/index\/').$item['uid']);?>"><img class="avatar" src="<?php echo($item['uavatar']); ?>"/></a>
 
-						<p class="item-upload-info"><a href="#" class="nickname"><?php echo($item['uname']); ?></a><?php echo($item['imgdate']);?> 上传</p>
+						<p class="item-upload-info"><a href="<?php echo(base_url('user/index\/').$item['uid']);?>" class="nickname"><?php echo($item['uname']); ?></a><?php echo($item['imgdate']);?> 上传</p>
 				</div>
 			<div class="item-op">
 

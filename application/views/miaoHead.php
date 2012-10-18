@@ -17,7 +17,7 @@
 	<div class="header">
 		<div class="header-inner">
 			<div class="header-bar wrapper">
-				<a href="#" class="logo"></a>
+				<a href="<?php echo base_url();?>" class="logo"></a>
 				<div class="tab-nav">
 					<ul>
 						<li class="on">
@@ -44,7 +44,7 @@
 						</form>
 						<iframe src="" name="unvisibleiframe" id="iframeUpload" style="visibily:hidden;width:0;height:0;position:absolute;left:-999px;top:-999px"></iframe>
 					</div>
-					<div class="head-user" id="head-user" uid="<?php echo $uid ?>" uname="<?php echo $uname?>" uurl="<?php echo $uurl?>" uavatar="<?php echo $uavatar ;?>"  >
+					<div class="head-user" id="head-user" uid="<?php echo $uid ?>" uname="<?php echo $uname?>" uavatar="<?php echo $uavatar ;?>"  >
 						<a  href="#" class="user-avatar"><img src="<?php echo $uavatar ;?>" ></a>
 					</div>
 					<?php else: ?>
