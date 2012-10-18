@@ -128,15 +128,39 @@ var Miaomi={
 			html.scrollTop(sTop);
 			html.addClass('noscroll');
 			if(!popFlag){
-				 popPreviewContainer.addClass('zoom-show');
+				 popPreviewContainer.addClass('zoom-show zoom-mask');
 				popFlag = 1;
 			}
 		}
 		function popHide(){
-			popPreviewContainer.removeClass('zoom-show');
+			popPreviewContainer.removeClass('zoom-show zoom-mask');
+			popPreviewContainer.unbind('click');
 			popInner.empty();
 			html.removeClass('noscroll');
 			popFlag = 0;
+		}
+		function loginShow(){
+			var sTop = html.scrollTop();
+			html.scrollTop(sTop);
+			html.addClass('noscroll');
+			if(!popFlag){
+				 popPreviewContainer.addClass('zoom-mask zoom-show login-show');
+				var sheetLogin=$("#sheetLogin");
+				sheetLogin.animate({top:'+=400'},500);
+				popFlag = 1;
+			}
+		}
+		function loginHide(){
+
+			var sheetLogin=$("#sheetLogin");
+			popPreviewContainer.removeClass("zoom-mask");
+			sheetLogin.animate({top:'-=400'},400,function(){
+				popPreviewContainer.removeClass('login-show zoom-show');
+				popInner.empty();
+				html.removeClass('noscroll');
+				popFlag = 0;
+			});
+
 		}
 		return {
 			// 弹出层方法 closeElm是关闭开关
@@ -144,7 +168,7 @@ var Miaomi={
 				var argLen = arguments.length;
 				popShow();
 				if(argLen == 0){
-					popPreviewContainer.click(
+					popPreviewContainer.bind('click',
 						function(e){
 							var $target = $(e.target);
 							e.stopPropagation();
@@ -156,7 +180,30 @@ var Miaomi={
 				}else{
 					closeElm.click(function(){
 						popHide();
+						return false;
 					})
+				}
+			},
+			// 登录弹出层 closeElm是关闭开关
+			loginInit:function(closeElm){
+				var argLen = arguments.length;
+					loginShow();
+
+					closeElm.click(function(){
+						loginHide();
+						return false;
+					})
+			},
+			loginPanel:function(){
+				if(!popFlag){
+					popInner.empty();
+					var loginTips = M.tmpl(login_tips);
+					M.pop.insertHtml(loginTips);
+					var popClose = $("#btnLoginClose");
+
+					M.pop.loginInit(popClose);
+				}else{
+					return false;
 				}
 			},
 			//弹出层插入内容的方法
@@ -175,12 +222,13 @@ var Miaomi={
 								"margin-top":-popHeight/2,
 								"margin-left":-popWidth/2
 							});
-//				M.log(popClose);
 							popClose.click(function(){popHide();})
 			}
 		};
 
 	}();
+
+
 
 	M.initPopImg=function(){
 		//图片点击事件
@@ -453,7 +501,7 @@ var Miaomi={
 		var btnGoTop = $("#goTop"),
 			sideScrollFun = function() {
 				var st = $(document).scrollTop(); //开始向下滚动的时候出现，加上渐隐渐显效果
-				(st > 0) ? btnGoTop.show() : btnGoTop.hide();
+				(st > 100) ? btnGoTop.show() : btnGoTop.hide();
 			} //绑定一下
 			$(window).bind("scroll", sideScrollFun);
 			btnGoTop.click(function() { //滚动的动画效果
@@ -475,12 +523,9 @@ var Miaomi={
 	M.initInput();
 	M.goTop();
 })(jQuery,Miaomi);
-//登陆测试
-$("#loginTest").click(function(){
-	var loginTips = Miaomi.tmpl(login_tips);
-	Miaomi.pop.insertHtml(loginTips);
-	var popClose = $(".pop-close");
-	Miaomi.pop.tipsInit(popClose);
-
+//登录测试
+$("#head-login").click(function(){
+Miaomi.pop.loginPanel();
+return false;
 });
 

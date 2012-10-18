@@ -48,7 +48,7 @@
 						<a  href="#" class="user-avatar"><img src="<?php echo $uavatar ;?>" ></a>
 					</div>
 					<?php else: ?>
-					<div class="head-user"><a href="#" onclick="return false;" class="login-btn weibo txt-hidden" title="使用新浪微博账号登录">使用新浪微博账号登录</a><a href="#" onclick="return false;" class="login-btn qzone txt-hidden" title="使用QQ账号登录">使用QQ账号登录</a></div>
+					<div class="head-user"><a href="#" class="" id="head-login">登了个录</a></div>
 					<?php endif;?>
 
 

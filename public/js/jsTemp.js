@@ -85,15 +85,13 @@ var warning_tips = [
 
 //登录弹出层
 var login_tips =[
-	'<div class="pop-tips pop-tips-login">',
-		'<div class="pop-tips-inner">',
-			'<div class="pop-tips-hd"><i class="pop-close"></i></div>',
-			'<div class="pop-tips-cont">',
-				'<p>矮油~登录之后才能继续操作噢~</p>',
-			'</div>',
-			'<div class="pop-tips-ft">',
-				'<a href="#" class="btn-login btn-login-weibo">微博账号</a><a href="#" class="btn-login btn-login-qzone">QQ账号</a>',
-			'</div>',
-		'</div>',
-	'</div>'
+			'<div id="sheetLogin" class="sheet-login">',
+				'<div class="sheet-login-container">',
+					'<div class="sheet-login-option">',
+						'<p class="login-tips-txt">使用下列第三方账号登录，无需注册更安全</p>',
+					'<div class="sheet-login-btns"><a href="#" class="btn-login btn-login-weibo">微博账号</a><a href="#" class="btn-login btn-login-qzone">QQ账号</a></div>',
+					'</div>',
+					'<a href="#" id="btnLoginClose" class="sheet-close">关闭</a>',
+				'</div>',
+			'</div>'
 ].join('');
