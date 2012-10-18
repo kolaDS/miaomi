@@ -9,7 +9,7 @@
 	<meta name="keywords" content="" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>miaomi</title>
-	<link rel="stylesheet" href="/miaomi/public/css/miaomi.css" />
+	<link rel="stylesheet" href="<?php echo base_url('public/css/miaomi.css')?>" />
 </head>
 <body>
 <div class="bg-wrapper">

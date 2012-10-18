@@ -251,7 +251,7 @@ input[type="text"]:focus{border-color:#efddaa;outline:none;}
 /* 面包屑 */
 .crumbs-nav .divide{ font-family:simsun; padding: 0 5px;}
 
-.details-info{padding-top:10px;}
+.details-info{padding-top:10px;margin-bottom: 50px}
 
 .personal-details{padding-top:15px;}
 

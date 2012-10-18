@@ -15,7 +15,7 @@ class Img extends CI_Model {
         $data['imgdate']=$date;
         $this->load->database();                      
 
-        if($this->db->insert('img', $data))        return true;
+        if($this->db->insert('img', $data)) return true;
         else return false;
        
     }
@@ -34,6 +34,7 @@ class Img extends CI_Model {
         $this->db->select("*");
         $this->db->from("img");
         $this->db->join("user", "img.imguid = user.uid","inner");
+        // $this->db->join("like", "imglike.likeimgid = img.imgid","outer");
         if ($lastImgid > 0) {
             $this->db->where("imgid <", $lastImgid);
         }

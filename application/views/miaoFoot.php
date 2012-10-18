@@ -16,14 +16,14 @@
 <!--大图查看弹出层 End-->
 </body>
  
-	<script type="text/javascript" src="/miaomi/public/js/jquery-1.7.2.min.js"></script>
-	<script type="text/javascript" src="/miaomi/public/js/jquery.imgareaselect.pack.js"></script>
-	<script type="text/javascript" src="/miaomi/public/js/jquery.masonry.min.js"></script>
-	<script type="text/javascript" src="/miaomi/public/js/jquery.infinitescroll.js"></script>
-	<script type="text/javascript" src="/miaomi/public/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="/miaomi/public/js/jquery.mousewheel.min.js"></script>
-	<script type="text/javascript" src="/miaomi/public/js/jsTemp.js"></script>
-	<script type="text/javascript" src="/miaomi/public/js/miaomi.js"></script>
+	<script type="text/javascript" src="public/js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="public/js/jquery.imgareaselect.pack.js"></script>
+	<script type="text/javascript" src="public/js/jquery.masonry.min.js"></script>
+	<script type="text/javascript" src="public/js/jquery.infinitescroll.js"></script>
+	<script type="text/javascript" src="public/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="public/js/jquery.mousewheel.min.js"></script>
+	<script type="text/javascript" src="public/js/jsTemp.js"></script>
+	<script type="text/javascript" src="public/js/miaomi.js"></script>
 	<script type="text/javascript">
 	$(function(){
 
@@ -79,7 +79,7 @@
             var $container = $('#mainList');     
             var lastimgid=$(".item").last().attr("imgid");
                         
-                        $("#page-nav a").attr("href","/miaomi/imglist/page/"+lastimgid);       
+                        $("#page-nav a").attr("href","imglist/page/"+lastimgid);       
             
             $container.infinitescroll({
                     navSelector:'#page-nav', // selector for the paged navigation
@@ -105,7 +105,7 @@
                         $container.masonry('appended', $newElems, true);
                         var lastimgid=$(".item").last().attr("imgid");  
                         Miaomi.log(lastimgid);                      
-                        $("#page-nav a").attr("href","/miaomi/imglist/page/"+lastimgid);
+                        $("#page-nav a").attr("href","imglist/page/"+lastimgid);
                     });
                 }
             );
