@@ -184,6 +184,10 @@ var Miaomi={
 					})
 				}
 			},
+			// 登录的Tips
+			loginTipsDefault:"使用下列第三方账号登录，无需注册更安全",
+			loginTipsSuspend:"喵~登录之后才能继续操作噢~",
+
 			// 登录弹出层 closeElm是关闭开关
 			loginInit:function(closeElm){
 				var argLen = arguments.length;
@@ -194,10 +198,10 @@ var Miaomi={
 						return false;
 					})
 			},
-			loginPanel:function(){
+			loginPanel:function(tipsText){
 				if(!popFlag){
 					popInner.empty();
-					var loginTips = M.tmpl(login_tips);
+					var loginTips = M.tmpl(login_tips,{logintips:tipsText});
 					M.pop.insertHtml(loginTips);
 					var popClose = $("#btnLoginClose");
 
@@ -519,13 +523,13 @@ var Miaomi={
     M.initMasonry();
     M.initIconLike();
     M.initIconShare();
-	M.initPopImg();
+//	M.initPopImg();
 	M.initInput();
 	M.goTop();
 })(jQuery,Miaomi);
 //登录测试
 $("#head-login").click(function(){
-Miaomi.pop.loginPanel();
+Miaomi.pop.loginPanel(Miaomi.pop.loginTipsSuspend);
 return false;
 });
 
